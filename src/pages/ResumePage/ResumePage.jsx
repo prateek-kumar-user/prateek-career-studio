@@ -1,9 +1,15 @@
 import React from 'react';
-import { Box, Card, CardContent, Chip, Divider, Stack, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, Chip, Divider, Stack, Typography } from '@mui/material';
+import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 
 import resume from '../../content/resume.json';
+import masterResumeMd from '../../../data-bank/master-resume-v1.md?raw';
+import masterResumeTxt from '../../../data-bank/master-resume-v1.txt?raw';
 
 import styles from './ResumePage.module.scss';
+
+const RESUME_PDF_PATH = '/resume/prateek-kumar-master-resume-1page.pdf';
+const HAS_RESUME_PDF = false; // TODO: set true after adding final 1-page PDF to public/resume/
 
 function ymLabel(ym) {
   if (!ym) return '';
@@ -14,10 +20,20 @@ function ymLabel(ym) {
 
 function skillGroups(skills) {
   return {
-    'Frontend': skills.filter((s) => /React|Redux|JavaScript|HTML|CSS|Responsive|Performance/i.test(s)),
+    Frontend: skills.filter((s) => /React|Redux|JavaScript|HTML|CSS|Responsive|Performance/i.test(s)),
     'API & Backend Collaboration': skills.filter((s) => /REST|PHP|MySQL|boundary/i.test(s)),
     'DevOps & Delivery': skills.filter((s) => /Apache|Nginx|AWS|Linux|CI\/CD/i.test(s))
   };
+}
+
+function downloadText(content, filename, type = 'text/plain;charset=utf-8') {
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
 }
 
 export default function ResumePage() {
@@ -31,6 +47,39 @@ export default function ResumePage() {
           Experience and skills organized for fast hiring review while staying ATS-friendly.
         </Typography>
       </Box>
+
+      <Card variant="outlined" className={styles.full}>
+        <CardContent>
+          <Typography variant="h3" sx={{ mb: 1 }}>Download package</Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
+            One-click resume export flow with PDF-first behavior and plain-text fallback for ATS workflows.
+          </Typography>
+
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} useFlexGap flexWrap="wrap">
+            <Button
+              variant="contained"
+              startIcon={<DownloadRoundedIcon />}
+              href={HAS_RESUME_PDF ? RESUME_PDF_PATH : undefined}
+              onClick={HAS_RESUME_PDF ? undefined : () => downloadText(masterResumeMd, 'prateek-kumar-master-resume-v1.md', 'text/markdown;charset=utf-8')}
+            >
+              {HAS_RESUME_PDF ? 'Download 1-page PDF' : 'Download master resume (.md fallback)'}
+            </Button>
+            <Button
+              variant="outlined"
+              startIcon={<DownloadRoundedIcon />}
+              onClick={() => downloadText(masterResumeTxt, 'prateek-kumar-master-resume-v1.txt')}
+            >
+              Download ATS text (.txt)
+            </Button>
+          </Stack>
+
+          {!HAS_RESUME_PDF && (
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 1.2 }}>
+              TODO: place final PDF at <code>public/resume/prateek-kumar-master-resume-1page.pdf</code> and set <code>HAS_RESUME_PDF</code> to true.
+            </Typography>
+          )}
+        </CardContent>
+      </Card>
 
       <Box className={styles.grid}>
         <Card variant="outlined" className={styles.summaryCard}>
