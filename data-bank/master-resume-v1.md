@@ -1,0 +1,55 @@
+# Prateek Kumar
+**Senior Software Engineer**  
+Bengaluru, Karnataka, India  
++91 90365 93930 · userprateek.com@gmail.com  
+LinkedIn: https://www.linkedin.com/in/userprateek
+
+## Professional Summary
+- Senior software engineer focused on React application architecture and stable client↔API boundaries for workflow-heavy products.
+- Known for reducing operational friction by replacing tightly coupled implementations with maintainable, observable systems.
+- Operates across frontend, API collaboration, and production operations (Linux/Nginx/CI-CD) to improve delivery reliability.
+
+## Core Skills
+React.js, Redux, JavaScript, Responsive UI (mobile-first), REST APIs, System boundary design (client ↔ API), Performance optimization, React Native, HTML/CSS/SCSS, PHP (CodeIgniter), MySQL, Apache/Nginx, AWS (EC2, S3), Linux, CI/CD
+
+## Experience
+### Senior Software Engineer — Maventech Labs
+**Sep 2021 – Present · Bengaluru, India**
+- Led React/Redux development for responsive web applications with clear component boundaries and predictable state architecture.
+- Partnered with backend teams on API contract design, reducing integration ambiguity and improving cross-team debugging speed.
+- Improved reliability and rendering performance through profiling-led optimization and regression-safe refactoring.
+- Owned delivery execution: planning, code reviews, iterative releases, and workflow reporting across project streams.
+
+### Software Engineer — Travelyaari
+**Oct 2019 – Aug 2021 · India**
+- Built and maintained customer-facing and internal modules using React.js/Redux with mobile-first responsive behavior.
+- Delivered end-to-end features across frontend and backend, including REST API development and integration.
+- Managed deployments and production maintenance on Apache (AWS EC2) with static/media delivery through S3.
+- Maintained clean, testable code and cross-browser consistency across multiple product surfaces.
+
+## Selected Case Studies
+### Cargo Web (Legacy-to-Web Migration)
+- Decoupled a tightly coupled EXE workflow from direct DB dependency by introducing API-driven web architecture.
+- Improved observability through explicit API behavior and reduced production instability.
+- Platform is used in active production nationwide.
+
+### Platform Consolidation (Multi-tenant Product Delivery)
+- Consolidated website builder, booking workflows, payments engine, and mobile delivery pattern.
+- Reduced duplication and release overhead by centralizing shared capabilities.
+- Architecture remains durable in production with low maintenance.
+
+### AWTAR / KSRTC (Deadline-Critical Delivery)
+- Selected React Native WebView strategy to handle late iOS requirement.
+- Delivered Android + iOS in one week without timeline extension.
+
+## Education
+**B.Tech, Computer Science Engineering**  
+Gurukula Kangri Vishwavidyalaya · 2014–2018
+
+## Certifications
+- Certificate for Completion of Python Training
+- JavaScript (Basic) Certificate
+
+## Languages
+- Hindi (Native)
+- English (Professional)

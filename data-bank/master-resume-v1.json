@@ -1,18 +1,26 @@
 {
-  "name": "Prateek Kumar",
-  "title": "Senior Software Engineer",
-  "location": "Bengaluru, Karnataka, India",
-  "contact": {
-    "email": "userprateek.com@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/userprateek",
-    "phone": "+919036593930"
+  "version": "v1",
+  "generated_from": [
+    "src/content/profile.json",
+    "src/content/resume.json",
+    "src/content/resume.txt"
+  ],
+  "candidate": {
+    "name": "Prateek Kumar",
+    "title": "Senior Software Engineer",
+    "location": "Bengaluru, Karnataka, India",
+    "contact": {
+      "email": "userprateek.com@gmail.com",
+      "phone": "+919036593930",
+      "linkedin": "https://www.linkedin.com/in/userprateek"
+    }
   },
   "summary": [
     "Senior software engineer focused on React application architecture and stable client↔API boundaries for workflow-heavy products.",
     "Known for reducing operational friction by replacing tightly coupled implementations with maintainable, observable systems.",
     "Operates across frontend, API collaboration, and production operations (Linux/Nginx/CI-CD) to improve delivery reliability."
   ],
-  "core_skills": [
+  "skills": [
     "React.js",
     "Redux",
     "JavaScript",
@@ -41,8 +49,7 @@
         "Partnered with backend teams on API contract design, reducing integration ambiguity and improving cross-team debugging speed.",
         "Improved reliability and rendering performance through profiling-led optimization and regression-safe refactoring.",
         "Owned delivery execution: planning, code reviews, iterative releases, and workflow reporting across project streams."
-      ],
-      "stack": ["React", "Redux", "JavaScript", "HTML", "CSS", "REST"]
+      ]
     },
     {
       "company": "Travelyaari",
@@ -55,8 +62,24 @@
         "Delivered end-to-end features across frontend and backend, including REST API development and integration.",
         "Managed deployments and production maintenance on Apache (AWS EC2) with static/media delivery through S3.",
         "Maintained clean, testable code and cross-browser consistency across multiple product surfaces."
-      ],
-      "stack": ["React", "Redux", "PHP", "CodeIgniter", "MySQL", "Apache", "AWS (EC2,S3)"]
+      ]
+    }
+  ],
+  "selected_projects": [
+    {
+      "name": "Cargo Web",
+      "focus": "Legacy-to-web migration with API-first boundaries",
+      "impact": "Improved observability and production stability; used in nationwide production."
+    },
+    {
+      "name": "Platform Consolidation",
+      "focus": "Unified booking, payments, and mobile delivery model",
+      "impact": "Reduced duplication and maintenance overhead; durable architecture."
+    },
+    {
+      "name": "AWTAR / KSRTC",
+      "focus": "Deadline-critical mobile delivery",
+      "impact": "Delivered Android + iOS within one week using pragmatic RN strategy."
     }
   ],
   "education": [
@@ -74,10 +97,5 @@
   "languages": [
     { "name": "Hindi", "level": "Native" },
     { "name": "English", "level": "Professional" }
-  ],
-  "availability": {
-    "full_time": true,
-    "freelance": true,
-    "remote": true
-  }
+  ]
 }

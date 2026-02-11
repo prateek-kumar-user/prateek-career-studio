@@ -1,0 +1,44 @@
+{
+  "candidate": {
+    "name": "Prateek Kumar",
+    "headline": "Senior Software Engineer",
+    "location": "Bengaluru, Karnataka, India",
+    "contact": {
+      "email": "userprateek.com@gmail.com",
+      "phone": "+919036593930",
+      "linkedin": "https://www.linkedin.com/in/userprateek",
+      "website": "https://userprateek.com"
+    },
+    "availability": {
+      "full_time": true,
+      "freelance": true,
+      "remote": true
+    }
+  },
+  "positioning": {
+    "primary_value": "Builds stable, maintainable product systems by improving frontend architecture and client↔API boundaries.",
+    "working_style": [
+      "Systems-first problem solving",
+      "Cross-functional collaboration",
+      "Execution ownership from design to release"
+    ],
+    "target_roles": [
+      "Senior Frontend Engineer",
+      "Senior Software Engineer",
+      "Full-stack Product Engineer (frontend-leaning)",
+      "Application Architect"
+    ]
+  },
+  "career_snapshot": {
+    "years_experience": "5+",
+    "current_company": "Maventech Labs",
+    "prior_company": "Travelyaari",
+    "education": "B.Tech, Computer Science Engineering (2014-2018)"
+  },
+  "evidence_themes": [
+    "Legacy-to-web migration in production",
+    "Platform consolidation to reduce duplication",
+    "Deadline recovery via pragmatic architecture choices",
+    "Cross-layer ownership (UI, API integration, deployment)"
+  ]
+}

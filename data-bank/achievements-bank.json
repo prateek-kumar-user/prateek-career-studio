@@ -1,0 +1,49 @@
+{
+  "achievement_bank": [
+    {
+      "id": "A1",
+      "theme": "System architecture",
+      "title": "Decoupled desktop client from direct DB dependency",
+      "context": "Cargo workflow platform migration",
+      "action": "Replaced tightly coupled EXE behavior with API-driven React web workflows and explicit REST boundaries.",
+      "impact": "Improved observability, reduced coupling, and materially improved production stability.",
+      "proof_reference": "profile.signature_projects.cargo_web"
+    },
+    {
+      "id": "A2",
+      "theme": "Platform consolidation",
+      "title": "Unified fragmented product surfaces into a reusable platform",
+      "context": "Website builder + booking + payment + mobile delivery",
+      "action": "Standardized booking flows, centralized payment logic, and moved change delivery to one platform.",
+      "impact": "Reduced code duplication and maintenance overhead while improving release consistency.",
+      "proof_reference": "profile.signature_projects.platform_consolidation"
+    },
+    {
+      "id": "A3",
+      "theme": "Delivery under constraints",
+      "title": "Delivered Android + iOS within one week for government timeline",
+      "context": "AWTAR/KSRTC delivery constraints with late iOS requirement",
+      "action": "Used a React Native WebView strategy instead of full native rebuild.",
+      "impact": "Met contractual deadlines without schedule extension and established a reusable pattern.",
+      "proof_reference": "profile.signature_projects.awtar_ksrtc"
+    },
+    {
+      "id": "A4",
+      "theme": "Engineering execution",
+      "title": "Owned delivery workflow from planning through release",
+      "context": "Maventech Labs project streams",
+      "action": "Led work breakdown, code reviews, and iterative release cycles with cross-team coordination.",
+      "impact": "Improved predictability and quality of ongoing delivery.",
+      "proof_reference": "resume.experience[0]"
+    },
+    {
+      "id": "A5",
+      "theme": "Operations",
+      "title": "Maintained production deployments on AWS-hosted Apache stack",
+      "context": "Travelyaari product operations",
+      "action": "Handled deployment and maintenance on EC2 with static/media delivery via S3.",
+      "impact": "Supported reliable production delivery across multiple modules.",
+      "proof_reference": "resume.experience[1]"
+    }
+  ]
+}

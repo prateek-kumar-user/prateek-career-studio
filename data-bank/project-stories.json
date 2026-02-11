@@ -1,0 +1,67 @@
+{
+  "project_stories": [
+    {
+      "id": "cargo-web",
+      "name": "Cargo Web",
+      "elevator_pitch": "Migrated a tightly coupled desktop workflow into a web platform with explicit API boundaries used in production nationwide.",
+      "problem": "Legacy EXE client and direct DB dependency created opaque behavior and constrained scaling/debugging.",
+      "actions": [
+        "Defined API-first boundaries between client and backend",
+        "Rebuilt execution flows in web client",
+        "Shifted diagnosis to API-level observability"
+      ],
+      "outcomes": [
+        "Better isolation of system load",
+        "Faster operational diagnosis",
+        "Improved production stability",
+        "Legacy pathway phased out"
+      ],
+      "best_for_roles": [
+        "Senior Frontend Engineer",
+        "Application Architect",
+        "Platform Engineer"
+      ]
+    },
+    {
+      "id": "platform-consolidation",
+      "name": "Platform Consolidation",
+      "elevator_pitch": "Consolidated website builder, booking, payments, and mobile delivery into a reusable architecture.",
+      "problem": "Fragmented implementations caused high duplication and costly maintenance/release cycles.",
+      "actions": [
+        "Standardized booking workflows",
+        "Centralized payment engine",
+        "Introduced React SPA where required",
+        "Used RN WebView wrapper model to avoid per-client native duplication"
+      ],
+      "outcomes": [
+        "Reduced maintenance overhead",
+        "Single-platform functional rollout",
+        "Long-lived architecture with low ongoing maintenance"
+      ],
+      "best_for_roles": [
+        "Senior Software Engineer",
+        "Product Engineer",
+        "Engineering Lead"
+      ]
+    },
+    {
+      "id": "awtar-ksrtc",
+      "name": "AWTAR / KSRTC",
+      "elevator_pitch": "Met a fixed government deadline by choosing a pragmatic cross-platform delivery strategy.",
+      "problem": "Late iOS requirement threatened committed timeline.",
+      "actions": [
+        "Selected React Native WebView wrapper approach over full native rebuild",
+        "Prioritized contractual scope and delivery risk"
+      ],
+      "outcomes": [
+        "Delivered Android + iOS in one week",
+        "No timeline extension required",
+        "Approach reused across future products"
+      ],
+      "best_for_roles": [
+        "Senior Engineer",
+        "Delivery-focused Product Engineer"
+      ]
+    }
+  ]
+}

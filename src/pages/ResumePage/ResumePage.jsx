@@ -61,7 +61,7 @@ export default function ResumePage() {
           Resume
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          ATS-friendly, professional summary and experience highlights.
+          ATS-friendly profile tailored for senior frontend and systems-oriented software roles.
         </Typography>
       </Box>
 

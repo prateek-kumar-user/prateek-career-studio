@@ -2,9 +2,9 @@
   "identity": {
     "name": "Prateek Kumar",
     "primary_title": "Senior Software Engineer",
-    "positioning": "Systems-oriented engineer focused on application architecture, frontend systems, and long-term stability",
-    "core_trait": "Moves deliberately to the layer where the system is leaking and fixes structural problems",
-    "engineering_identity": "Not tied to frontend or backend; operates across layers based on system risk",
+    "positioning": "Senior software engineer who turns fragile product codebases into stable, API-driven systems teams can ship on confidently.",
+    "core_trait": "Moves deliberately to the layer where the system is leaking and fixes structural problems before they become recurring incidents",
+    "engineering_identity": "Cross-layer engineer (frontend architecture, API contracts, operations)",
     "location": "India",
     "availability": {
       "full_time": true,
@@ -36,10 +36,10 @@
 
   "technical_scope": {
     "primary_strengths": [
-      "Frontend application architecture (React)",
+      "Frontend architecture for React applications",
       "System boundary design (client ↔ API)",
-      "Workflow-driven and operational applications",
-      "Multi-tenant and white-label platforms"
+      "Workflow-driven and operational product platforms",
+      "Multi-tenant and white-label delivery systems"
     ],
     "cross_layer_understanding": {
       "backend": "Strong professional background; capable of guiding API design and system boundaries without claiming DB ownership",
@@ -66,47 +66,49 @@
   "signature_projects": {
     "cargo_web": {
       "system_role": "Architectural boundary setter and frontend system owner",
-      "core_shift": "Decoupled legacy desktop client from database using API-driven web architecture",
+      "context": "Migrated a legacy desktop workflow to a web platform used in active production nationwide.",
+      "core_shift": "Decoupled a tightly coupled EXE client from direct database dependency by introducing API-driven web architecture.",
       "decisions": [
-        "Replaced tightly coupled EXE with web-based client",
-        "Introduced REST APIs to expose system behavior explicitly",
-        "Enabled API-level observability instead of DB-level guesswork",
-        "Designed client-heavy execution to reduce server pressure"
+        "Replaced desktop client behavior with browser-based workflows",
+        "Introduced explicit REST APIs to expose business behavior",
+        "Shifted diagnosis from DB-level guesswork to API-level observability",
+        "Designed client-heavy execution paths to reduce server bottlenecks"
       ],
       "outcomes": [
         "Backend and DB teams could isolate and scale load per API",
-        "Operational diagnosis improved from opaque to actionable",
-        "UI fixes became cheap and enforceable via reloads",
-        "Legacy desktop system phased out over time",
+        "Operational debugging became faster and more actionable",
+        "UI fixes became cheaper and easier to roll out",
+        "Legacy desktop pathways were gradually retired",
         "Production stability improved significantly"
       ],
       "status": "Primary production platform used nationwide"
     },
 
     "platform_consolidation": {
-      "scope": "Website builder, booking workflows, payment engine, mobile delivery",
+      "scope": "Website builder, booking workflows, payment engine, and mobile delivery model",
+      "core_shift": "Consolidated fragmented product implementations into one reusable platform and release pipeline.",
       "decisions": [
-        "Standardized booking workflows across all customer sites",
-        "Centralized payment logic into reusable engine",
-        "Introduced React SPA where dynamic behavior mattered",
-        "Replaced thousands of native apps with React Native WebView wrapper"
+        "Standardized booking workflows across customer sites",
+        "Centralized payment logic into a reusable shared engine",
+        "Used React SPA where dynamic behavior and speed mattered",
+        "Replaced thousands of native app variants with React Native WebView wrappers"
       ],
       "outcomes": [
-        "Eliminated large-scale code duplication",
-        "Reduced release and maintenance overhead dramatically",
-        "Shifted all functional changes to a single platform",
-        "Enabled non-engineering teams to operate independently"
+        "Large-scale code duplication was eliminated",
+        "Release and maintenance overhead dropped materially",
+        "Functional changes moved to a single platform instead of per-client apps",
+        "Non-engineering teams gained more operational autonomy"
       ],
       "durability": "Architecture remains in use with minimal maintenance"
     },
 
     "awtar_ksrtc": {
-      "context": "Government project with fixed deadline and late iOS requirement",
-      "judgment_call": "Chose WebView-based RN wrapper over native rebuild",
+      "context": "Government delivery with fixed timeline and late iOS requirement",
+      "judgment_call": "Chose a WebView-based React Native wrapper instead of a full native rebuild to de-risk deadline delivery.",
       "result": [
         "Delivered Android and iOS apps within one week",
-        "Met contractual obligations without timeline extension",
-        "Pattern later adopted across company products"
+        "Met contractual delivery constraints without extending timeline",
+        "Pattern was later reused across multiple company products"
       ]
     }
   },
@@ -115,8 +117,8 @@
     "role": "AI-literate engineer and system integrator",
     "understanding": [
       "Conceptual understanding of transformer-based models",
-      "Tracks evolution of AI models and their practical capabilities",
-      "Understands why modern AI works, not just how to use it"
+      "Tracks evolution of AI models and practical capabilities",
+      "Understands why modern AI works, not just how to call APIs"
     ],
     "usage_pattern": [
       "Uses AI to accelerate reasoning, exploration, and implementation",

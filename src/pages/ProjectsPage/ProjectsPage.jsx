@@ -92,7 +92,7 @@ export default function ProjectsPage() {
           Projects
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Case studies focused on system boundaries, durability, and operational clarity.
+          Hiring-focused case studies showing ownership, technical judgment, and business impact.
         </Typography>
       </Box>
 

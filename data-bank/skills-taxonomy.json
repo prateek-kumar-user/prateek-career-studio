@@ -1,0 +1,61 @@
+{
+  "skills_taxonomy": {
+    "frontend_engineering": {
+      "primary": [
+        "React.js",
+        "Redux",
+        "JavaScript",
+        "HTML/CSS/SCSS",
+        "Responsive UI (mobile-first)"
+      ],
+      "secondary": [
+        "UI performance optimization",
+        "Component architecture",
+        "Cross-browser reliability"
+      ]
+    },
+    "application_architecture": {
+      "primary": [
+        "Client ↔ API boundary design",
+        "Workflow-driven product systems",
+        "Multi-tenant / white-label design patterns"
+      ],
+      "secondary": [
+        "Legacy migration planning",
+        "Operational observability through API boundaries"
+      ]
+    },
+    "backend_and_integration": {
+      "primary": [
+        "REST API integration",
+        "PHP (CodeIgniter)",
+        "MySQL"
+      ],
+      "secondary": [
+        "API contract collaboration",
+        "Cross-layer debugging"
+      ]
+    },
+    "devops_and_operations": {
+      "primary": [
+        "Linux",
+        "Apache / Nginx",
+        "AWS (EC2, S3)",
+        "CI/CD"
+      ],
+      "secondary": [
+        "Release workflow ownership",
+        "Production maintenance"
+      ]
+    },
+    "mobile": {
+      "primary": [
+        "React Native",
+        "Android (Java)"
+      ],
+      "secondary": [
+        "WebView delivery strategy for rapid cross-platform rollout"
+      ]
+    }
+  }
+}
