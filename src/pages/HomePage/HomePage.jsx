@@ -82,12 +82,12 @@ export default function HomePage() {
   ];
 
   const capabilities = [
-    'React frontend architecture for workflow-heavy products',
+    'Systems-first problem solving for workflow-heavy React products',
     'API contract and client-boundary design with backend teams',
     'Performance and reliability improvements through targeted refactoring',
     'Reusable platform design for multi-tenant and white-label delivery',
-    'Release coordination across planning, code review, and production support',
-    'Mobile delivery strategy using React Native and pragmatic architecture decisions'
+    'Execution ownership from design to release across cross-functional teams',
+    'Pragmatic mobile delivery strategy using React Native when timeline risk is high'
   ];
 
   const outcomes = [
@@ -107,7 +107,7 @@ export default function HomePage() {
               <Typography variant="h1">{identity.name}</Typography>
 
               <Typography variant="h2" className={styles.headline}>
-                Senior Software Engineer — React Architecture, API Integration, Production Delivery
+                Senior Software Engineer — React architecture, client↔API boundary design, and production delivery
               </Typography>
 
               <Typography variant="body1" className={styles.heroLead}>
@@ -115,8 +115,8 @@ export default function HomePage() {
               </Typography>
 
               <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 880 }}>
-                Business value: Helps teams ship faster and with lower maintenance overhead by improving frontend structure,
-                API alignment, and release reliability.
+                Primary value: builds stable, maintainable product systems by improving frontend architecture,
+                integration boundaries, and release reliability.
               </Typography>
 
               <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" className={styles.tags}>

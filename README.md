@@ -28,6 +28,13 @@ Website and resume content lives in:
 - `src/content/site.json`
 - `src/content/resume.txt` (legacy/source transcript)
 
+Canonical source-of-truth for personality, positioning, adjectives/qualities, and resume/project narrative is the `data-bank/` set, especially:
+- `data-bank/master-profile.json`
+- `data-bank/master-resume-v1.json`
+- `data-bank/project-stories.json`
+
+When polishing copy/tone, prefer databank language and evidence over ad-hoc rewrites.
+
 ---
 
 ## Resume Overhaul Roadmap

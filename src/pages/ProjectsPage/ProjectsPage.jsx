@@ -185,7 +185,7 @@ export default function ProjectsPage() {
       <Box className={styles.header}>
         <Typography variant="h2">Project portfolio highlights</Typography>
         <Typography variant="body1" color="text.secondary">
-          Recruiter and hiring-manager oriented case studies with explicit context, architecture decisions, delivery outcomes, and asset placeholders for evidence capture.
+          Recruiter and hiring-manager oriented case studies grounded in canonical project stories: context, technical decisions, and measurable delivery outcomes.
         </Typography>
       </Box>
 

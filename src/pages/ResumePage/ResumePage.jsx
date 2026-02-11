@@ -60,7 +60,7 @@ export default function ResumePage() {
       <Box className={styles.header}>
         <Typography variant="h2">Resume overview</Typography>
         <Typography variant="body1" color="text.secondary">
-          Experience and skills organized for fast hiring review while staying ATS-friendly.
+          Experience and skills organized from databank-backed resume evidence for fast hiring review while staying ATS-friendly.
         </Typography>
       </Box>
 
