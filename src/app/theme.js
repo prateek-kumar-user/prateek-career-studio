@@ -99,7 +99,23 @@ export const theme = createTheme(baseTheme, {
         root: {
           borderRadius: 10,
           fontWeight: 560,
-          backgroundColor: alpha('#ffffff', 0.05)
+          color: '#ecf6ff',
+          backgroundColor: alpha('#73d9ff', 0.12),
+          border: `1px solid ${alpha('#73d9ff', 0.26)}`
+        },
+        label: {
+          color: 'inherit'
+        },
+        filledPrimary: {
+          color: '#05111f',
+          backgroundColor: '#73d9ff'
+        },
+        filledSecondary: {
+          color: '#14072b',
+          backgroundColor: '#b18cff'
+        },
+        outlined: {
+          borderColor: alpha('#73d9ff', 0.38)
         }
       }
     }
