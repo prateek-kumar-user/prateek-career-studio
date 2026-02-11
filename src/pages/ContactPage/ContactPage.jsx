@@ -6,6 +6,7 @@ import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 
 import site from '../../content/site.json';
 import resume from '../../content/resume.json';
+import GoogleReadyContactForm from '../../components/GoogleReadyContactForm/GoogleReadyContactForm';
 
 import styles from './ContactPage.module.scss';
 
@@ -62,6 +63,12 @@ export default function ContactPage() {
                 Visit {domain}
               </Button>
             </Stack>
+          </CardContent>
+        </Card>
+
+        <Card variant="outlined" className={styles.full}>
+          <CardContent>
+            <GoogleReadyContactForm />
           </CardContent>
         </Card>
       </Box>
