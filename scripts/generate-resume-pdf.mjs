@@ -24,9 +24,8 @@ const mutedColor = rgb(0.33, 0.34, 0.37);
 const sectionColor = rgb(0.14, 0.14, 0.16);
 
 const toSafe = (value) => String(value)
-  .replace(/↔/g, '<->')
+  .replace(/↔/g, 'and')
   .replace(/[—–]/g, '-')
-  .replace(/•/g, '-')
   .replace(/[“”]/g, '"')
   .replace(/[’]/g, "'");
 
@@ -84,9 +83,16 @@ function section(title) {
   y -= 2;
 }
 
+function ymLabel(ym) {
+  if (!ym || ym === 'Present') return 'Present';
+  const [year, month] = ym.split('-');
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return `${monthNames[Number(month) - 1]} ${year}`;
+}
+
 function drawRoleLine(job) {
   const roleLine = `${job.role} | ${job.company}`;
-  const dateLine = `${job.start} to ${job.end}`;
+  const dateLine = `${ymLabel(job.start)} to ${ymLabel(job.end)}`;
 
   page.drawText(toSafe(roleLine), { x: marginX, y, size: 10.2, font: bold, color: textColor });
   const dateWidth = bold.widthOfTextAtSize(toSafe(dateLine), 9.4);
@@ -118,15 +124,15 @@ drawParagraph(`${data.candidate.contact.email} | ${data.candidate.contact.phone}
   leading: 11.4
 });
 
-section('Summary');
+section('Professional Summary');
 for (const line of data.summary.slice(0, 3)) {
   drawBullet(line, { size: 9.8, leading: 11.8 });
 }
 
-section('Core Skills');
+section('Technical Strengths');
 drawParagraph(data.skills.join(' | '), { size: 9, leading: 11.5 });
 
-section('Experience');
+section('Professional Experience');
 for (const job of data.experience.slice(0, 2)) {
   drawRoleLine(job);
   for (const highlight of (job.highlights ?? []).slice(0, 3)) {
@@ -135,13 +141,13 @@ for (const job of data.experience.slice(0, 2)) {
   y -= 2.4;
 }
 
-section('Selected Projects');
+section('Representative Case Studies');
 for (const project of data.selected_projects.slice(0, 3)) {
   drawParagraph(`${project.name} | ${project.focus}`, { size: 9.7, font: bold, leading: 11.8 });
   drawBullet(project.impact, { size: 9.3, leading: 11.3, indent: 10 });
 }
 
-section('Education & Certifications');
+section('Education and Certifications');
 const edu = data.education?.[0];
 if (edu) {
   drawParagraph(`${edu.degree}, ${edu.school} (${edu.start}-${edu.end})`, { size: 9.7, leading: 11.8 });
