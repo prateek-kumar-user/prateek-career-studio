@@ -1,18 +1,24 @@
 .desktopNav {
-  display: flex;
-  gap: 8px;
+  display: inline-flex;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  gap: 4px;
 
-  /* On small screens, hide the desktop button row */
-  @media (max-width: 599px) {
+  @media (max-width: 759px) {
     display: none;
   }
+}
+
+.navButton {
+  min-width: 88px;
 }
 
 .mobileNav {
   display: none;
 
-  /* On small screens, show hamburger */
-  @media (max-width: 599px) {
+  @media (max-width: 759px) {
     display: flex;
   }
 }

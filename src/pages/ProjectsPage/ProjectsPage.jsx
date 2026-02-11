@@ -1,79 +1,86 @@
 import React from 'react';
-import { Box, Card, CardContent, Divider, Stack, Typography } from '@mui/material';
+import { Box, Card, CardContent, Chip, Divider, Stack, Typography } from '@mui/material';
 
 import profile from '../../content/profile.json';
 
 import styles from './ProjectsPage.module.scss';
 
-function BulletList({ title, items }) {
-  if (!items?.length) return null;
-
+function ProjectBlock({ title, project }) {
   return (
-    <>
-      <Divider sx={{ borderColor: 'rgba(255,255,255,0.10)' }} />
-      <Box>
-        <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>
-          {title}
-        </Typography>
-        <Stack spacing={0.5} sx={{ mt: 1 }}>
-          {items.map((t) => (
-            <Typography key={t} variant="body2">
-              • {t}
-            </Typography>
-          ))}
-        </Stack>
-      </Box>
-    </>
-  );
-}
-
-function ProjectCard({ title, project }) {
-  return (
-    <Card
-      variant="outlined"
-      className={styles.card}
-      sx={{ borderColor: 'rgba(255,255,255,0.12)' }}
-    >
+    <Card variant="outlined" className={styles.card}>
       <CardContent>
         <Stack spacing={1.5}>
-          <Typography variant="h6" sx={{ fontWeight: 800 }}>
-            {title}
-          </Typography>
-
-          {project.context && (
-            <Typography variant="body2" color="text.secondary">
-              {project.context}
-            </Typography>
-          )}
-
-          {project.core_shift && <Typography variant="body1">{project.core_shift}</Typography>}
-          {project.judgment_call && <Typography variant="body1">{project.judgment_call}</Typography>}
+          <Box className={styles.titleRow}>
+            <Typography variant="h3">{title}</Typography>
+            {project.status && <Chip size="small" label={project.status} color="primary" variant="outlined" />}
+          </Box>
 
           {project.system_role && (
             <Typography variant="body2" color="text.secondary">
-              Role: {project.system_role}
+              <strong>Role:</strong> {project.system_role}
             </Typography>
           )}
 
           {project.scope && (
             <Typography variant="body2" color="text.secondary">
-              Scope: {project.scope}
+              <strong>Scope:</strong> {project.scope}
             </Typography>
           )}
 
-          <BulletList title="Decisions" items={project.decisions} />
-          <BulletList title="Outcomes" items={project.outcomes} />
-          <BulletList title="Result" items={project.result} />
+          {project.context && <Typography variant="body2" color="text.secondary">{project.context}</Typography>}
+          {project.core_shift && <Typography variant="body1">{project.core_shift}</Typography>}
+          {project.judgment_call && <Typography variant="body1">{project.judgment_call}</Typography>}
 
-          {project.status && (
-            <Typography variant="caption" color="text.secondary">
-              Status: {project.status}
-            </Typography>
-          )}
+          <Divider sx={{ borderColor: 'rgba(255,255,255,0.1)' }} />
+
+          {project.decisions?.length ? (
+            <Box>
+              <Typography variant="overline" color="text.secondary">
+                Technical decisions
+              </Typography>
+              <Stack spacing={0.75} sx={{ mt: 0.4 }}>
+                {project.decisions.map((d) => (
+                  <Typography key={d} variant="body2">
+                    • {d}
+                  </Typography>
+                ))}
+              </Stack>
+            </Box>
+          ) : null}
+
+          {project.outcomes?.length ? (
+            <Box>
+              <Typography variant="overline" color="text.secondary">
+                Outcomes
+              </Typography>
+              <Stack spacing={0.75} sx={{ mt: 0.4 }}>
+                {project.outcomes.map((o) => (
+                  <Typography key={o} variant="body2">
+                    • {o}
+                  </Typography>
+                ))}
+              </Stack>
+            </Box>
+          ) : null}
+
+          {project.result?.length ? (
+            <Box>
+              <Typography variant="overline" color="text.secondary">
+                Delivery result
+              </Typography>
+              <Stack spacing={0.75} sx={{ mt: 0.4 }}>
+                {project.result.map((r) => (
+                  <Typography key={r} variant="body2">
+                    • {r}
+                  </Typography>
+                ))}
+              </Stack>
+            </Box>
+          ) : null}
 
           {project.durability && (
-            <Typography variant="caption" color="text.secondary">
-              Durability: {project.durability}
+            <Typography variant="body2" color="text.secondary">
+              <strong>Durability:</strong> {project.durability}
             </Typography>
           )}
         </Stack>
@@ -86,20 +93,18 @@ export default function ProjectsPage() {
   const projects = profile.signature_projects;
 
   return (
-    <Box>
+    <Box className={styles.page}>
       <Box className={styles.header}>
-        <Typography variant="h4" sx={{ fontWeight: 800 }}>
-          Projects
-        </Typography>
+        <Typography variant="h2">Selected projects</Typography>
         <Typography variant="body1" color="text.secondary">
-          Hiring-focused case studies showing ownership, technical judgment, and business impact.
+          Case studies focused on architecture ownership, implementation choices, and measurable delivery outcomes.
         </Typography>
       </Box>
 
-      <Box sx={{ mt: 2 }} className={styles.grid}>
-        <ProjectCard title="Cargo Web" project={projects.cargo_web} />
-        <ProjectCard title="Platform Consolidation" project={projects.platform_consolidation} />
-        <ProjectCard title="AWTAR / KSRTC" project={projects.awtar_ksrtc} />
+      <Box className={styles.grid}>
+        <ProjectBlock title="Cargo Web Modernization" project={projects.cargo_web} />
+        <ProjectBlock title="Platform Consolidation System" project={projects.platform_consolidation} />
+        <ProjectBlock title="AWTAR / KSRTC Launch" project={projects.awtar_ksrtc} />
       </Box>
     </Box>
   );

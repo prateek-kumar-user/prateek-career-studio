@@ -11,26 +11,34 @@ export default function AppLayout() {
   return (
     <Box className={styles.root}>
       <AppBar position="sticky" color="transparent" elevation={0} className={styles.appBar}>
-        <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 700 }}>
-            {site.domain}
-          </Typography>
+        <Container maxWidth="lg">
+          <Toolbar disableGutters className={styles.toolbar}>
+            <Box>
+              <Typography variant="overline" className={styles.brandKicker}>
+                Portfolio
+              </Typography>
+              <Typography variant="h6" className={styles.brand}>
+                {site.domain}
+              </Typography>
+            </Box>
 
-          <ResponsiveNav />
-        </Toolbar>
+            <ResponsiveNav />
+          </Toolbar>
+        </Container>
       </AppBar>
 
       <Container maxWidth="lg" className={styles.container}>
         <Outlet />
       </Container>
 
-      <Box className={styles.footer}>
-        <Container maxWidth="lg">
-          <Box className={styles.footerInner}>
-            <Typography variant="body2" color="text.secondary">
-              © {new Date().getFullYear()} {site.domain}
-            </Typography>
-          </Box>
+      <Box component="footer" className={styles.footer}>
+        <Container maxWidth="lg" className={styles.footerInner}>
+          <Typography variant="body2" color="text.secondary">
+            © {new Date().getFullYear()} {site.domain}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Built with React + MUI
+          </Typography>
         </Container>
       </Box>
     </Box>

@@ -1,33 +1,97 @@
+.page {
+  display: grid;
+  gap: clamp(22px, 3vw, 34px);
+}
+
 .hero {
-  display: grid;
-  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  min-height: 380px;
 
-  grid-template-columns: 1fr;
-  align-items: start;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.05);
+    transform: scale(1.02);
+  }
 
-  @media (min-width: 900px) {
-    grid-template-columns: 360px 1fr;
-    align-items: center;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(112deg, rgba(7, 12, 22, 0.94) 9%, rgba(7, 13, 24, 0.85) 48%, rgba(5, 10, 20, 0.6) 100%),
+      radial-gradient(circle at 85% 20%, rgba(115, 217, 255, 0.24), transparent 40%);
   }
 }
 
-.avatarWrap {
+.heroOverlay {
+  position: relative;
+  z-index: 1;
+  padding: clamp(22px, 4vw, 44px);
+}
+
+.identityWrap {
   display: flex;
-  gap: 16px;
   align-items: center;
+  gap: 14px;
 }
 
-.highlights {
-  margin-top: 24px;
+.heroLead {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  max-width: 800px;
+}
+
+.philosophyCard {
+  background: rgba(8, 14, 27, 0.65) !important;
+}
+
+.sectionHeader {
   display: grid;
-  gap: 16px;
+  gap: 8px;
+}
+
+.focusGrid {
+  display: grid;
+  gap: 14px;
   grid-template-columns: 1fr;
 
-  @media (min-width: 900px) {
-    grid-template-columns: 1fr 1fr 1fr;
+  @media (min-width: 860px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.card {
+.focusCard {
   height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(115, 217, 255, 0.34);
+    box-shadow: 0 16px 30px rgba(1, 8, 20, 0.42);
+  }
+}
+
+.skillBand {
+  border-radius: 18px;
+}
+
+.fadeUp {
+  animation: fadeUp 420ms ease-out both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

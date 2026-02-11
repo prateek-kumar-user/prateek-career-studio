@@ -1,16 +1,35 @@
+.page {
+  display: grid;
+  gap: 18px;
+}
+
+.header {
+  display: grid;
+  gap: 8px;
+}
+
 .grid {
   display: grid;
-  gap: 16px;
+  gap: 14px;
   grid-template-columns: 1fr;
 
   @media (min-width: 900px) {
     grid-template-columns: 1.2fr 0.8fr;
-    align-items: start;
   }
 }
 
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.primaryCard {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: auto -60px -80px auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(177, 140, 255, 0.24), transparent 62%);
+    pointer-events: none;
+  }
 }

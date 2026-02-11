@@ -9,9 +9,10 @@ import {
   List,
   ListItem,
   ListItemButton,
-  ListItemText
+  ListItemText,
+  Typography
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 import site from '../../content/site.json';
 
@@ -29,47 +30,43 @@ export default function ResponsiveNav() {
 
   return (
     <>
-      {/* Desktop nav: buttons */}
-      <Box className={styles.desktopNav}>
-        {site.routes.map((r) => (
-          <Button
-            key={r.path}
-            variant={location.pathname === r.path ? 'contained' : 'text'}
-            color={location.pathname === r.path ? 'primary' : 'inherit'}
-            onClick={() => go(r.path)}
-            sx={{ textTransform: 'none' }}
-          >
-            {r.label}
-          </Button>
-        ))}
+      <Box className={styles.desktopNav} aria-label="Primary navigation">
+        {site.routes.map((r) => {
+          const isActive = location.pathname === r.path;
+          return (
+            <Button
+              key={r.path}
+              variant={isActive ? 'contained' : 'text'}
+              color={isActive ? 'primary' : 'inherit'}
+              onClick={() => go(r.path)}
+              className={styles.navButton}
+            >
+              {r.label}
+            </Button>
+          );
+        })}
       </Box>
 
-      {/* Mobile nav: hamburger + drawer */}
       <Box className={styles.mobileNav}>
-        <IconButton
-          aria-label="Open menu"
-          onClick={() => setOpen(true)}
-          color="inherit"
-          size="large"
-        >
-          <MenuIcon />
+        <IconButton aria-label="Open menu" onClick={() => setOpen(true)} color="inherit" size="large">
+          <MenuRoundedIcon />
         </IconButton>
 
         <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-          <Box sx={{ width: 280, p: 2 }} role="presentation">
-            <List disablePadding>
+          <Box sx={{ width: 290, p: 2.25 }} role="presentation">
+            <Typography variant="overline" color="text.secondary">
+              Navigate
+            </Typography>
+            <List disablePadding sx={{ mt: 1 }}>
               {site.routes.map((r) => (
                 <ListItem key={r.path} disablePadding>
-                  <ListItemButton
-                    selected={location.pathname === r.path}
-                    onClick={() => go(r.path)}
-                  >
+                  <ListItemButton selected={location.pathname === r.path} onClick={() => go(r.path)}>
                     <ListItemText primary={r.label} />
                   </ListItemButton>
                 </ListItem>
               ))}
             </List>
-            <Divider sx={{ mt: 2, borderColor: 'rgba(0,0,0,0.08)' }} />
+            <Divider sx={{ mt: 2, borderColor: 'rgba(255,255,255,0.09)' }} />
           </Box>
         </Drawer>
       </Box>

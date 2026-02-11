@@ -1,12 +1,16 @@
+.page {
+  display: grid;
+  gap: 18px;
+}
+
 .header {
   display: grid;
-  gap: 12px;
+  gap: 8px;
 }
 
 .grid {
   display: grid;
-  gap: 16px;
-
+  gap: 14px;
   grid-template-columns: 1fr;
 
   @media (min-width: 900px) {
@@ -16,4 +20,16 @@
 
 .card {
   height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(177, 140, 255, 0.4);
+  }
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
 }
