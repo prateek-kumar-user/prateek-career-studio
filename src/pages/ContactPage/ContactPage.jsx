@@ -63,18 +63,23 @@ export default function ContactPage() {
 
         <Card variant="outlined" className={styles.full}>
           <CardContent>
-            <Typography variant="h3" sx={{ mb: 1.2 }}>Direct contact</Typography>
+            <Typography variant="h3" sx={{ mb: 1.2 }}>Inquiry form</Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1.6 }}>
-              Share hiring details directly by email or LinkedIn message. Response is typically within one business day.
+              Submit details through the embedded Google Form below.
             </Typography>
-            <Stack spacing={1}>
-              <Button variant="contained" startIcon={<MailOutlineRoundedIcon />} onClick={() => openExternal(`mailto:${contact.email}`)}>
-                Email hiring details
-              </Button>
-              <Button variant="outlined" startIcon={<LinkedInIcon />} onClick={() => openExternal(contact.linkedin)}>
-                Message on LinkedIn
-              </Button>
-            </Stack>
+
+            <Box className={styles.formEmbedWrap}>
+              <iframe
+                title="Hiring inquiry form"
+                src="https://docs.google.com/forms/d/e/1FAIpQLScRD1FumDKrbdyW36cOiPSnQRa7EjX13L7S3fouJxPgVwx8kQ/viewform?embedded=true"
+                className={styles.formEmbed}
+                frameBorder="0"
+                marginHeight="0"
+                marginWidth="0"
+              >
+                Loading…
+              </iframe>
+            </Box>
           </CardContent>
         </Card>
       </Box>

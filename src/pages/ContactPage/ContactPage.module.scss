@@ -37,3 +37,17 @@
     pointer-events: none;
   }
 }
+
+.formEmbedWrap {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(7, 14, 28, 0.6);
+}
+
+.formEmbed {
+  width: 100%;
+  min-height: 980px;
+  border: 0;
+  display: block;
+}
