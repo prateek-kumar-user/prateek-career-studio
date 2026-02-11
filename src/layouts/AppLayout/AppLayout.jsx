@@ -20,7 +20,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 import site from '../../content/site.json';
 import profile from '../../content/profile.json';
-import avatar from '../../assets/avatar-placeholder.svg';
+import avatar from '../../assets/profile/prateek-primary.jpg';
 
 import styles from './AppLayout.module.scss';
 

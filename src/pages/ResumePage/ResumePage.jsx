@@ -3,13 +3,11 @@ import { Box, Button, Card, CardContent, Chip, Divider, Stack, Typography } from
 import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 
 import resume from '../../content/resume.json';
-import masterResumeMd from '../../../data-bank/master-resume-v1.md?raw';
-import masterResumeTxt from '../../../data-bank/master-resume-v1.txt?raw';
 
 import styles from './ResumePage.module.scss';
 
 const RESUME_PDF_PATH = '/resume/prateek-kumar-master-resume-1page.pdf';
-const HAS_RESUME_PDF = false; // TODO: set true after adding final 1-page PDF to public/resume/
+const HAS_RESUME_PDF = false; // set true after adding final checked PDF
 
 function ymLabel(ym) {
   if (!ym) return '';
@@ -26,16 +24,6 @@ function skillGroups(skills) {
   };
 }
 
-function downloadText(content, filename, type = 'text/plain;charset=utf-8') {
-  const blob = new Blob([content], { type });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename;
-  link.click();
-  URL.revokeObjectURL(url);
-}
-
 export default function ResumePage() {
   const grouped = skillGroups(resume.core_skills);
 
@@ -50,9 +38,9 @@ export default function ResumePage() {
 
       <Card variant="outlined" className={styles.full}>
         <CardContent>
-          <Typography variant="h3" sx={{ mb: 1 }}>Download package</Typography>
+          <Typography variant="h3" sx={{ mb: 1 }}>Download resume</Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
-            One-click resume export flow with PDF-first behavior and plain-text fallback for ATS workflows.
+            Public download is PDF-only.
           </Typography>
 
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} useFlexGap flexWrap="wrap">
@@ -60,22 +48,15 @@ export default function ResumePage() {
               variant="contained"
               startIcon={<DownloadRoundedIcon />}
               href={HAS_RESUME_PDF ? RESUME_PDF_PATH : undefined}
-              onClick={HAS_RESUME_PDF ? undefined : () => downloadText(masterResumeMd, 'prateek-kumar-master-resume-v1.md', 'text/markdown;charset=utf-8')}
+              disabled={!HAS_RESUME_PDF}
             >
-              {HAS_RESUME_PDF ? 'Download 1-page PDF' : 'Download master resume (.md fallback)'}
-            </Button>
-            <Button
-              variant="outlined"
-              startIcon={<DownloadRoundedIcon />}
-              onClick={() => downloadText(masterResumeTxt, 'prateek-kumar-master-resume-v1.txt')}
-            >
-              Download ATS text (.txt)
+              Download checked PDF
             </Button>
           </Stack>
 
           {!HAS_RESUME_PDF && (
             <Typography variant="body2" color="text.secondary" sx={{ mt: 1.2 }}>
-              TODO: place final PDF at <code>public/resume/prateek-kumar-master-resume-1page.pdf</code> and set <code>HAS_RESUME_PDF</code> to true.
+              Final PDF will be enabled after review upload.
             </Typography>
           )}
         </CardContent>
@@ -184,13 +165,7 @@ export default function ResumePage() {
 
         <Card variant="outlined">
           <CardContent>
-            <Typography variant="h3" sx={{ mb: 1.2 }}>Certifications & languages</Typography>
-            <Stack spacing={0.7}>
-              {resume.certifications.map((cert) => (
-                <Typography key={cert} variant="body2">• {cert}</Typography>
-              ))}
-            </Stack>
-            <Divider sx={{ my: 1.3, borderColor: 'rgba(255,255,255,0.1)' }} />
+            <Typography variant="h3" sx={{ mb: 1.2 }}>Languages</Typography>
             <Stack spacing={0.7}>
               {resume.languages.map((lang) => (
                 <Typography key={lang.name} variant="body2">• {lang.name} — {lang.level}</Typography>
