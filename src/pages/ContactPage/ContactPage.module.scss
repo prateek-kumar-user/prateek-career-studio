@@ -38,18 +38,18 @@
   }
 }
 
-.formEmbedWrap {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  overflow: hidden;
-  background: rgba(7, 14, 28, 0.6);
+.availabilityChip {
+  background: rgba(115, 217, 255, 0.2) !important;
+  border: 1px solid rgba(115, 217, 255, 0.5) !important;
+  color: #eef8ff !important;
+  font-weight: 650 !important;
 }
 
-.formEmbed {
-  width: 100%;
-  min-height: 980px;
-  border: 0;
-  display: block;
+.messageGuide {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: rgba(7, 14, 28, 0.6);
+  padding: 12px;
 }
 
 .actionButton {

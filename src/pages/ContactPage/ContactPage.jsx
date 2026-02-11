@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Button, Card, CardContent, Chip, Stack, Typography } from '@mui/material';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PhoneInTalkRoundedIcon from '@mui/icons-material/PhoneInTalkRounded';
 
 import site from '../../content/site.json';
 import resume from '../../content/resume.json';
@@ -33,9 +34,9 @@ export default function ContactPage() {
                 Best fit: teams modernizing complex workflows and looking for strong React architecture plus API coordination.
               </Typography>
               <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
-                {resume.availability.full_time && <Chip label="Full-time" color="primary" />}
-                {resume.availability.freelance && <Chip label="Freelance" color="secondary" />}
-                {resume.availability.remote && <Chip label="Remote" variant="outlined" />}
+                {resume.availability.full_time && <Chip label="Full-time" className={styles.availabilityChip} />}
+                {resume.availability.freelance && <Chip label="Freelance" className={styles.availabilityChip} />}
+                {resume.availability.remote && <Chip label="Remote" className={styles.availabilityChip} />}
               </Stack>
 
               <Typography variant="body2" color="text.secondary" sx={{ mt: 0.4 }}>
@@ -57,6 +58,9 @@ export default function ContactPage() {
               <Button className={styles.actionButton} variant="outlined" startIcon={<LinkedInIcon />} onClick={() => openExternal(contact.linkedin)}>
                 Open LinkedIn
               </Button>
+              <Button className={styles.actionButton} variant="outlined" startIcon={<PhoneInTalkRoundedIcon />} onClick={() => openExternal(`tel:${contact.phone}`)}>
+                Call phone
+              </Button>
             </Stack>
           </CardContent>
         </Card>
@@ -67,7 +71,15 @@ export default function ContactPage() {
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1.6 }}>
               Share role context, current product constraints, and expected delivery timeline. Responses are prioritized for active hiring discussions.
             </Typography>
-            <Stack spacing={1}>
+            <Box className={styles.messageGuide}>
+              <Typography variant="subtitle2" sx={{ mb: 0.7 }}>Helpful first message format</Typography>
+              <Stack spacing={0.7}>
+                <Typography variant="body2">• Company and team context</Typography>
+                <Typography variant="body2">• Product/workflow complexity you need help with</Typography>
+                <Typography variant="body2">• Hiring timeline and interview process</Typography>
+              </Stack>
+            </Box>
+            <Stack spacing={1} sx={{ mt: 1.5 }}>
               <Button className={styles.actionButton} variant="contained" startIcon={<MailOutlineRoundedIcon />} onClick={() => openExternal(`mailto:${contact.email}`)}>
                 Email hiring details
               </Button>
