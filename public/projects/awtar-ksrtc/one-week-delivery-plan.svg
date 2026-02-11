@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" role="img" aria-label="One-week delivery plan flowchart for Android and iOS launch">
+  <rect width="1280" height="800" fill="#0a1222"/>
+  <rect x="58" y="68" width="1164" height="664" rx="24" fill="#101b31" stroke="#405f8d" stroke-width="2"/>
+
+  <g fill="#1d355a" stroke="#7aa5de" stroke-width="1.5">
+    <rect x="96" y="120" width="148" height="92" rx="14"/>
+    <rect x="262" y="120" width="148" height="92" rx="14"/>
+    <rect x="428" y="120" width="148" height="92" rx="14"/>
+    <rect x="594" y="120" width="148" height="92" rx="14"/>
+    <rect x="760" y="120" width="148" height="92" rx="14"/>
+    <rect x="926" y="120" width="148" height="92" rx="14"/>
+    <rect x="1092" y="120" width="92" height="92" rx="14"/>
+  </g>
+
+  <g stroke="#60a5fa" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M244 166 H262"/>
+    <path d="M410 166 H428"/>
+    <path d="M576 166 H594"/>
+    <path d="M742 166 H760"/>
+    <path d="M908 166 H926"/>
+    <path d="M1074 166 H1092"/>
+  </g>
+
+  <g fill="#173255" stroke="#6da1d8" stroke-width="1.5">
+    <rect x="118" y="278" width="476" height="174" rx="18"/>
+    <rect x="686" y="278" width="476" height="174" rx="18"/>
+    <rect x="118" y="486" width="476" height="174" rx="18"/>
+    <rect x="686" y="486" width="476" height="174" rx="18"/>
+  </g>
+
+  <g stroke="#34d399" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M356 212 V278"/>
+    <path d="M924 212 V278"/>
+    <path d="M356 452 V486"/>
+    <path d="M924 452 V486"/>
+  </g>
+
+  <g fill="#2a4f7e">
+    <rect x="148" y="312" width="408" height="18" rx="9"/>
+    <rect x="148" y="346" width="360" height="16" rx="8"/>
+    <rect x="148" y="376" width="390" height="16" rx="8"/>
+
+    <rect x="716" y="312" width="408" height="18" rx="9"/>
+    <rect x="716" y="346" width="350" height="16" rx="8"/>
+    <rect x="716" y="376" width="382" height="16" rx="8"/>
+
+    <rect x="148" y="520" width="408" height="18" rx="9"/>
+    <rect x="148" y="554" width="334" height="16" rx="8"/>
+    <rect x="148" y="584" width="386" height="16" rx="8"/>
+
+    <rect x="716" y="520" width="408" height="18" rx="9"/>
+    <rect x="716" y="554" width="340" height="16" rx="8"/>
+    <rect x="716" y="584" width="382" height="16" rx="8"/>
+  </g>
+</svg>

@@ -23,11 +23,13 @@ import profile from '../../content/profile.json';
 import avatar from '../../assets/profile/prateek-primary.jpg';
 
 import styles from './AppLayout.module.scss';
+import { getRuntimeDomain } from '../../utils/runtimeDomain';
 
 export default function AppLayout() {
   const location = useLocation();
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
+  const runtimeDomain = getRuntimeDomain();
 
   const go = (path) => {
     setOpen(false);
@@ -47,7 +49,7 @@ export default function AppLayout() {
               Portfolio
             </Typography>
             <Typography variant="h6" className={styles.brand}>
-              {site.domain}
+              {runtimeDomain}
             </Typography>
           </Box>
 
@@ -126,7 +128,7 @@ export default function AppLayout() {
 
         <Box component="footer" className={styles.footer}>
           <Typography variant="body2" color="text.secondary">
-            © {new Date().getFullYear()} {site.domain}
+            © {new Date().getFullYear()} {runtimeDomain}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Built with React + MUI

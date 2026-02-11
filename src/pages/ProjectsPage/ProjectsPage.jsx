@@ -23,14 +23,12 @@ const PROJECT_PRESENTATION = {
     subtitle: 'Desktop-to-web migration for nationwide logistics workflows',
     visualSlots: [
       {
-        src: '/projects/cargo-web/screenshot-operations-dashboard.png',
-        caption: 'Operations dashboard and workflow execution surface',
-        fallbackLabel: 'Drop dashboard screenshot here'
+        src: '/projects/cargo-web/operations-dashboard.svg',
+        caption: 'Operations dashboard and workflow execution surface'
       },
       {
-        src: '/projects/cargo-web/diagram-api-boundary.png',
-        caption: 'Client-to-API boundary and request orchestration diagram',
-        fallbackLabel: 'Drop API boundary diagram here'
+        src: '/projects/cargo-web/api-boundary-orchestration.svg',
+        caption: 'Client-to-API boundary and request orchestration diagram'
       }
     ]
   },
@@ -39,14 +37,12 @@ const PROJECT_PRESENTATION = {
     subtitle: 'Unified architecture for booking, payments, and delivery surfaces',
     visualSlots: [
       {
-        src: '/projects/platform-consolidation/screenshot-admin-workflow.png',
-        caption: 'Shared administration workflow across consolidated modules',
-        fallbackLabel: 'Drop admin workflow screenshot here'
+        src: '/projects/platform-consolidation/admin-workflow.svg',
+        caption: 'Shared administration workflow across consolidated modules'
       },
       {
-        src: '/projects/platform-consolidation/diagram-platform-modules.png',
-        caption: 'Reusable platform modules and shared release pipeline',
-        fallbackLabel: 'Drop platform module diagram here'
+        src: '/projects/platform-consolidation/platform-modules-pipeline.svg',
+        caption: 'Reusable platform modules and shared release pipeline'
       }
     ]
   },
@@ -55,20 +51,30 @@ const PROJECT_PRESENTATION = {
     subtitle: 'Deadline-critical cross-platform mobile release for government timeline',
     visualSlots: [
       {
-        src: '/projects/awtar-ksrtc/screenshot-mobile-webview.png',
-        caption: 'Cross-platform mobile interface delivered with React Native wrapper',
-        fallbackLabel: 'Drop mobile UI screenshot here'
+        src: '/projects/awtar-ksrtc/mobile-webview-interface.svg',
+        caption: 'Cross-platform mobile interface delivered with React Native wrapper'
       },
       {
-        src: '/projects/awtar-ksrtc/diagram-delivery-plan.png',
-        caption: 'One-week execution plan for Android and iOS launch',
-        fallbackLabel: 'Drop delivery plan diagram here'
+        src: '/projects/awtar-ksrtc/one-week-delivery-plan.svg',
+        caption: 'One-week execution plan for Android and iOS launch'
       }
     ]
   }
 };
 
 const storyMap = Object.fromEntries(projectStories.project_stories.map((story) => [story.id, story]));
+
+const normalizeBullet = (text) => text.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+
+function uniqueBullets(items = []) {
+  const seen = new Set();
+  return items.filter((item) => {
+    const key = normalizeBullet(item);
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
 
 function StorySection({ label, items }) {
   if (!items?.length) return null;
@@ -90,32 +96,14 @@ function StorySection({ label, items }) {
 }
 
 function ProjectVisualSlot({ slot }) {
-  const [hasError, setHasError] = React.useState(false);
-
   return (
     <figure className={styles.visualSlot}>
-      {!hasError ? (
-        <img
-          src={slot.src}
-          alt={slot.caption}
-          loading="lazy"
-          decoding="async"
-          onError={() => setHasError(true)}
-        />
-      ) : (
-        <div className={styles.visualFallback}>
-          <img
-            src="/projects/placeholders/project-visual-placeholder.svg"
-            alt="Project visual placeholder"
-          />
-          <Typography variant="caption" color="text.secondary">
-            {slot.fallbackLabel}
-          </Typography>
-          <Typography variant="caption" color="text.secondary">
-            Expected file: <code>{slot.src.replace(/^\//, 'public/')}</code>
-          </Typography>
-        </div>
-      )}
+      <img
+        src={slot.src}
+        alt={slot.caption}
+        loading="lazy"
+        decoding="async"
+      />
       <figcaption>{slot.caption}</figcaption>
     </figure>
   );
@@ -133,7 +121,7 @@ function ProjectBlock({ projectKey, project, onDiscuss }) {
   const story = resolveStory(projectKey);
   const challenge = [project.context, project.scope, story?.problem].filter(Boolean);
   const decisions = [project.core_shift, project.judgment_call, ...(project.decisions ?? []), ...(story?.actions ?? [])].filter(Boolean);
-  const outcomes = [...(project.outcomes ?? []), ...(project.result ?? []), ...(story?.outcomes ?? [])].filter(Boolean);
+  const outcomes = uniqueBullets([...(project.outcomes ?? []), ...(project.result ?? []), ...(story?.outcomes ?? [])]);
 
   return (
     <Card variant="outlined" className={styles.card}>

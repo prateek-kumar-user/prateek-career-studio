@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" role="img" aria-label="Cargo web API boundary orchestration flowchart">
+  <rect width="1280" height="800" fill="#0b1324"/>
+  <rect x="60" y="70" width="360" height="660" rx="24" fill="#10203b" stroke="#2f4f7b" stroke-width="2"/>
+  <rect x="460" y="70" width="360" height="660" rx="24" fill="#111b30" stroke="#37598a" stroke-width="2"/>
+  <rect x="860" y="70" width="360" height="660" rx="24" fill="#10203b" stroke="#2f4f7b" stroke-width="2"/>
+
+  <g fill="#1f3f69" stroke="#5c89c7" stroke-width="1.5">
+    <rect x="98" y="150" width="284" height="94" rx="14"/>
+    <rect x="98" y="292" width="284" height="94" rx="14"/>
+    <rect x="98" y="434" width="284" height="94" rx="14"/>
+
+    <rect x="498" y="150" width="284" height="94" rx="14"/>
+    <rect x="498" y="292" width="284" height="94" rx="14"/>
+    <rect x="498" y="434" width="284" height="94" rx="14"/>
+
+    <rect x="898" y="150" width="284" height="94" rx="14"/>
+    <rect x="898" y="292" width="284" height="94" rx="14"/>
+    <rect x="898" y="434" width="284" height="94" rx="14"/>
+  </g>
+
+  <g stroke="#7dd3fc" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M382 197 H498"/>
+    <path d="M382 339 H498"/>
+    <path d="M382 481 H498"/>
+    <path d="M782 197 H898"/>
+    <path d="M782 339 H898"/>
+    <path d="M782 481 H898"/>
+  </g>
+
+  <g stroke="#34d399" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="10 12">
+    <path d="M640 544 V664"/>
+    <path d="M1040 544 V664"/>
+    <path d="M240 544 V664"/>
+  </g>
+
+  <g fill="#1d3f64" stroke="#6ea8d9" stroke-width="1.5">
+    <rect x="98" y="620" width="284" height="74" rx="12"/>
+    <rect x="498" y="620" width="284" height="74" rx="12"/>
+    <rect x="898" y="620" width="284" height="74" rx="12"/>
+  </g>
+</svg>

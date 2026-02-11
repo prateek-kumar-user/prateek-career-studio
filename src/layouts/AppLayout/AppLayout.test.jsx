@@ -18,7 +18,7 @@ describe('AppLayout', () => {
   it('renders domain title and nav labels', () => {
     render(<AppLayout />);
 
-    expect(screen.getByText('userprateek.com')).toBeInTheDocument();
+    expect(screen.getByText('localhost')).toBeInTheDocument();
     expect(screen.getByText('Home', { selector: 'button' })).toBeInTheDocument();
     expect(screen.getByText('Projects', { selector: 'button' })).toBeInTheDocument();
     expect(screen.getByText('Resume', { selector: 'button' })).toBeInTheDocument();

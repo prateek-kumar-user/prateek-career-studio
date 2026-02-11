@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" role="img" aria-label="Platform consolidation shared admin workflow">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="800" fill="url(#bg)"/>
+  <rect x="56" y="52" width="1168" height="696" rx="24" fill="#111d33" stroke="#415d87" stroke-width="2"/>
+
+  <g fill="#1f3558" stroke="#7898c6" stroke-width="1.5">
+    <rect x="106" y="118" width="320" height="120" rx="16"/>
+    <rect x="480" y="118" width="320" height="120" rx="16"/>
+    <rect x="854" y="118" width="320" height="120" rx="16"/>
+
+    <rect x="106" y="292" width="320" height="120" rx="16"/>
+    <rect x="480" y="292" width="320" height="120" rx="16"/>
+    <rect x="854" y="292" width="320" height="120" rx="16"/>
+
+    <rect x="106" y="466" width="320" height="120" rx="16"/>
+    <rect x="480" y="466" width="320" height="120" rx="16"/>
+    <rect x="854" y="466" width="320" height="120" rx="16"/>
+  </g>
+
+  <g stroke="#60a5fa" stroke-width="7" fill="none" stroke-linecap="round">
+    <path d="M426 178 H480"/>
+    <path d="M800 178 H854"/>
+    <path d="M426 352 H480"/>
+    <path d="M800 352 H854"/>
+    <path d="M426 526 H480"/>
+    <path d="M800 526 H854"/>
+  </g>
+
+  <g stroke="#34d399" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M266 238 V292"/>
+    <path d="M640 238 V292"/>
+    <path d="M1014 238 V292"/>
+    <path d="M266 412 V466"/>
+    <path d="M640 412 V466"/>
+    <path d="M1014 412 V466"/>
+  </g>
+
+  <rect x="106" y="634" width="1068" height="70" rx="14" fill="#173456" stroke="#5d86be" stroke-width="1.5"/>
+</svg>

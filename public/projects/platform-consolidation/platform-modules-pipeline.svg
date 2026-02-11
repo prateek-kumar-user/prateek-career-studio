@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" role="img" aria-label="Platform module and release pipeline architecture diagram">
+  <rect width="1280" height="800" fill="#0b1220"/>
+  <rect x="72" y="96" width="1136" height="608" rx="26" fill="#111b2f" stroke="#3d5c88" stroke-width="2"/>
+
+  <g fill="#1a3358" stroke="#78a2d9" stroke-width="1.5">
+    <rect x="130" y="146" width="220" height="96" rx="14"/>
+    <rect x="130" y="266" width="220" height="96" rx="14"/>
+    <rect x="130" y="386" width="220" height="96" rx="14"/>
+    <rect x="130" y="506" width="220" height="96" rx="14"/>
+
+    <rect x="420" y="206" width="270" height="156" rx="16"/>
+    <rect x="730" y="206" width="180" height="72" rx="12"/>
+    <rect x="730" y="292" width="180" height="72" rx="12"/>
+    <rect x="730" y="378" width="180" height="72" rx="12"/>
+
+    <rect x="948" y="206" width="200" height="96" rx="14"/>
+    <rect x="948" y="326" width="200" height="96" rx="14"/>
+    <rect x="948" y="446" width="200" height="96" rx="14"/>
+  </g>
+
+  <g stroke="#60a5fa" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M350 194 H420"/>
+    <path d="M350 314 H420"/>
+    <path d="M350 434 H420"/>
+    <path d="M350 554 H420"/>
+    <path d="M690 284 H730"/>
+    <path d="M910 242 H948"/>
+    <path d="M910 328 H948"/>
+    <path d="M910 414 H948"/>
+  </g>
+
+  <g stroke="#34d399" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="8 10">
+    <path d="M1048 542 V618"/>
+    <path d="M820 450 V618"/>
+    <path d="M554 362 V618"/>
+  </g>
+
+  <rect x="240" y="618" width="860" height="56" rx="14" fill="#193759" stroke="#6da0d8"/>
+</svg>
