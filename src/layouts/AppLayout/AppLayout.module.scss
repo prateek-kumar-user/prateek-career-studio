@@ -1,20 +1,125 @@
 .root {
+  position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  isolation: isolate;
 }
 
-.appBar {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(14px);
-  background: rgba(6, 11, 20, 0.72);
+.backgroundPattern {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 700px at 8% -10%, rgba(115, 217, 255, 0.14), transparent 62%),
+    radial-gradient(900px 620px at 97% 0%, rgba(177, 140, 255, 0.13), transparent 58%),
+    radial-gradient(circle at 12% 74%, rgba(39, 90, 131, 0.2), transparent 42%),
+    linear-gradient(130deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(50deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    #070b13;
+  background-size:
+    auto,
+    auto,
+    auto,
+    54px 54px,
+    46px 46px,
+    auto;
+  background-position:
+    center,
+    center,
+    center,
+    0 0,
+    10px 24px,
+    center;
 }
 
-.toolbar {
-  min-height: 76px;
+.frame {
+  padding-top: clamp(18px, 2.7vw, 30px);
+  padding-bottom: clamp(24px, 4vw, 44px);
+}
+
+.mobileTopBar {
+  display: none;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: rgba(8, 14, 26, 0.72);
+  backdrop-filter: blur(9px);
+
+  @media (max-width: 959px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.layoutGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 960px) {
+    grid-template-columns: minmax(250px, 292px) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.sidebar {
+  display: none;
+
+  @media (min-width: 960px) {
+    display: block;
+    position: sticky;
+    top: 16px;
+    max-height: calc(100vh - 32px);
+  }
+}
+
+.sidebarInner {
+  padding: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+.profileAvatar {
+  width: 92px !important;
+  height: 92px !important;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.desktopNav {
+  display: grid;
+  gap: 8px;
+}
+
+.navButton {
+  justify-content: flex-start !important;
+}
+
+.contentColumn {
+  min-width: 0;
+}
+
+.mobileProfileCard {
+  margin-top: 16px;
+  padding: 14px;
+
+  @media (min-width: 960px) {
+    display: none;
+  }
+}
+
+.footer {
+  margin-top: clamp(20px, 3vw, 32px);
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
 .brandKicker {
@@ -25,29 +130,5 @@
 
 .brand {
   font-weight: 780;
-  line-height: 1.25;
-}
-
-.container {
-  flex: 1;
-  padding-top: clamp(22px, 5vw, 52px);
-  padding-bottom: clamp(32px, 6vw, 80px);
-}
-
-.footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(6, 10, 18, 0.5);
-}
-
-.footerInner {
-  padding: 18px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  line-height: 1.2;
 }

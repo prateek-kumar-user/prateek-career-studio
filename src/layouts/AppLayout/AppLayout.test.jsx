@@ -2,7 +2,6 @@ import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 
-// Mock the router hooks used inside the layout
 vi.mock('react-router-dom', async () => {
   const actual = await vi.importActual('react-router-dom');
   return {
@@ -16,23 +15,22 @@ vi.mock('react-router-dom', async () => {
 import AppLayout from './AppLayout';
 
 describe('AppLayout', () => {
-  it('renders domain title and nav buttons', () => {
+  it('renders domain title and nav labels', () => {
     render(<AppLayout />);
 
     expect(screen.getByText('userprateek.com')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Home' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Projects' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Resume' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Contact' })).toBeInTheDocument();
+    expect(screen.getByText('Home', { selector: 'button' })).toBeInTheDocument();
+    expect(screen.getByText('Projects', { selector: 'button' })).toBeInTheDocument();
+    expect(screen.getByText('Resume', { selector: 'button' })).toBeInTheDocument();
+    expect(screen.getByText('Contact', { selector: 'button' })).toBeInTheDocument();
   });
 
-  it('buttons are clickable (no anchor navigation)', () => {
+  it('route controls are buttons', () => {
     render(<AppLayout />);
 
-    const projects = screen.getByRole('button', { name: 'Projects' });
+    const projects = screen.getByText('Projects', { selector: 'button' });
     fireEvent.click(projects);
 
-    // If this were an <a>, it would show link role. Ensure it's still a button.
     expect(projects.tagName.toLowerCase()).toBe('button');
   });
 });
