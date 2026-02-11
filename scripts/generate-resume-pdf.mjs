@@ -92,15 +92,15 @@ for (const job of data.experience.slice(0, 2)) {
   y -= 4;
 }
 
-section('Selected Projects');
+section('Project Highlights');
 for (const p of data.selected_projects.slice(0, 3)) {
-  draw(`${p.name}: ${p.focus}`, { size: 10.2, font: bold, leading: 12.5 });
-  draw(`• ${p.impact}`, { size: 9.8, leading: 12.2, indent: 4 });
+  draw(`${p.name} — ${p.focus}`, { size: 10.2, font: bold, leading: 12.5 });
+  draw(`- ${p.impact}`, { size: 9.8, leading: 12.2, indent: 4 });
 }
 
 section('Education');
 const edu = data.education[0];
-draw(`${edu.degree} — ${edu.school} (${edu.start}-${edu.end})`, { size: 10.2, leading: 13 });
+draw(`${edu.degree}, ${edu.school} (${edu.start}-${edu.end})`, { size: 10.2, leading: 13 });
 
 fs.mkdirSync(outputDir, { recursive: true });
 fs.writeFileSync(outputPath, await pdf.save());
