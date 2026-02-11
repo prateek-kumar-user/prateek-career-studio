@@ -1,6 +1,6 @@
 .page {
   display: grid;
-  gap: 18px;
+  gap: clamp(16px, 2.2vw, 22px);
 }
 
 .header {
