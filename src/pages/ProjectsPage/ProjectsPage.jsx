@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Box,
+  Button,
   Card,
   CardContent,
   Chip,
@@ -8,6 +9,8 @@ import {
   Stack,
   Typography
 } from '@mui/material';
+import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded';
+import { useNavigate } from 'react-router-dom';
 
 import profile from '../../content/profile.json';
 import projectStories from '../../../data-bank/project-stories.json';
@@ -125,7 +128,7 @@ function resolveStory(projectKey) {
   return undefined;
 }
 
-function ProjectBlock({ projectKey, project }) {
+function ProjectBlock({ projectKey, project, onDiscuss }) {
   const presentation = PROJECT_PRESENTATION[projectKey];
   const story = resolveStory(projectKey);
   const challenge = [project.context, project.scope, story?.problem].filter(Boolean);
@@ -189,6 +192,15 @@ function ProjectBlock({ projectKey, project }) {
               ))}
             </Box>
           </Box>
+
+          <Button
+            variant="outlined"
+            endIcon={<ArrowOutwardRoundedIcon />}
+            className={styles.discussButton}
+            onClick={onDiscuss}
+          >
+            Discuss a similar architecture challenge
+          </Button>
         </Stack>
       </CardContent>
     </Card>
@@ -197,6 +209,7 @@ function ProjectBlock({ projectKey, project }) {
 
 export default function ProjectsPage() {
   const projects = profile.signature_projects;
+  const navigate = useNavigate();
 
   return (
     <Box className={styles.page}>
@@ -207,10 +220,21 @@ export default function ProjectsPage() {
         </Typography>
       </Box>
 
+      <Card variant="outlined" className={styles.scanGuide}>
+        <CardContent>
+          <Typography variant="h3" sx={{ mb: 1.2 }}>How to scan these case studies quickly</Typography>
+          <Stack spacing={0.8}>
+            <Typography variant="body2" color="text.secondary">• Start with <strong>Context</strong> to see business constraints and scale.</Typography>
+            <Typography variant="body2" color="text.secondary">• Use <strong>Approach</strong> to understand architecture and decision quality.</Typography>
+            <Typography variant="body2" color="text.secondary">• Validate with <strong>Results</strong> and visual evidence for delivery credibility.</Typography>
+          </Stack>
+        </CardContent>
+      </Card>
+
       <Box className={styles.grid}>
-        <ProjectBlock projectKey="cargo_web" project={projects.cargo_web} />
-        <ProjectBlock projectKey="platform_consolidation" project={projects.platform_consolidation} />
-        <ProjectBlock projectKey="awtar_ksrtc" project={projects.awtar_ksrtc} />
+        <ProjectBlock projectKey="cargo_web" project={projects.cargo_web} onDiscuss={() => navigate('/contact')} />
+        <ProjectBlock projectKey="platform_consolidation" project={projects.platform_consolidation} onDiscuss={() => navigate('/contact')} />
+        <ProjectBlock projectKey="awtar_ksrtc" project={projects.awtar_ksrtc} onDiscuss={() => navigate('/contact')} />
       </Box>
     </Box>
   );

@@ -3,6 +3,8 @@ import { Box, Button, Card, CardContent, Chip, Stack, Typography } from '@mui/ma
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PhoneInTalkRoundedIcon from '@mui/icons-material/PhoneInTalkRounded';
+import ContentCopyRoundedIcon from '@mui/icons-material/ContentCopyRounded';
+import TaskAltRoundedIcon from '@mui/icons-material/TaskAltRounded';
 
 import site from '../../content/site.json';
 import resume from '../../content/resume.json';
@@ -15,6 +17,17 @@ function openExternal(url) {
 
 export default function ContactPage() {
   const { contact } = site;
+  const [copied, setCopied] = React.useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(contact.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      setCopied(false);
+    }
+  };
 
   return (
     <Box className={styles.page}>
@@ -44,6 +57,25 @@ export default function ContactPage() {
                 <br />
                 <strong>Phone:</strong> {contact.phone}
               </Typography>
+
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
+                <Button
+                  className={styles.actionButton}
+                  variant={copied ? 'contained' : 'outlined'}
+                  startIcon={copied ? <TaskAltRoundedIcon /> : <ContentCopyRoundedIcon />}
+                  onClick={copyEmail}
+                >
+                  {copied ? 'Email copied' : 'Copy email address'}
+                </Button>
+                <Button
+                  className={styles.actionButton}
+                  variant="contained"
+                  startIcon={<MailOutlineRoundedIcon />}
+                  onClick={() => openExternal(`mailto:${contact.email}`)}
+                >
+                  Send email now
+                </Button>
+              </Stack>
             </Stack>
           </CardContent>
         </Card>
@@ -79,6 +111,14 @@ export default function ContactPage() {
                 <Typography variant="body2">• Hiring timeline and interview process</Typography>
               </Stack>
             </Box>
+
+            <Box className={styles.responseNote}>
+              <Typography variant="subtitle2" sx={{ mb: 0.4 }}>Response expectation</Typography>
+              <Typography variant="body2" color="text.secondary">
+                Email is the fastest route for role discussions. Include job scope and hiring window for a quicker, relevant reply.
+              </Typography>
+            </Box>
+
             <Stack spacing={1} sx={{ mt: 1.5 }}>
               <Button className={styles.actionButton} variant="contained" startIcon={<MailOutlineRoundedIcon />} onClick={() => openExternal(`mailto:${contact.email}`)}>
                 Email hiring details

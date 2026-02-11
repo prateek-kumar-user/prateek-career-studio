@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, Button, Card, CardContent, Chip, Divider, Stack, Typography } from '@mui/material';
 import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
+import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded';
+import { useNavigate } from 'react-router-dom';
 
 import resume from '../../content/resume.json';
 
@@ -16,6 +18,26 @@ function ymLabel(ym) {
   return `${month} ${y}`;
 }
 
+function ymToMonths(ym) {
+  if (!ym || ym === 'Present') return null;
+  const [year, month] = ym.split('-').map(Number);
+  return year * 12 + (month - 1);
+}
+
+function totalExperienceYears(experience) {
+  const now = new Date();
+  const currentMonth = now.getUTCFullYear() * 12 + now.getUTCMonth();
+
+  const totalMonths = experience.reduce((sum, job) => {
+    const start = ymToMonths(job.start);
+    const end = job.end === 'Present' ? currentMonth : ymToMonths(job.end);
+    if (start == null || end == null || end < start) return sum;
+    return sum + (end - start + 1);
+  }, 0);
+
+  return Math.max(1, Math.floor(totalMonths / 12));
+}
+
 function skillGroups(skills) {
   return {
     'Frontend Architecture': skills.filter((s) => /React|Redux|JavaScript|HTML|CSS|Responsive|Performance/i.test(s)),
@@ -26,6 +48,8 @@ function skillGroups(skills) {
 
 export default function ResumePage() {
   const grouped = skillGroups(resume.core_skills);
+  const navigate = useNavigate();
+  const years = totalExperienceYears(resume.experience);
 
   const handlePdfDownload = async (event) => {
     event.preventDefault();
@@ -66,11 +90,15 @@ export default function ResumePage() {
 
       <Card variant="outlined" className={styles.full}>
         <CardContent>
-          <Typography variant="h3" sx={{ mb: 1 }}>Download resume</Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
-            Public resume is available as a checked PDF.
+          <Typography variant="h3" sx={{ mb: 1.1 }}>Hiring snapshot</Typography>
+          <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ mb: 1.3 }}>
+            <Chip label={`${years}+ years delivery experience`} className={styles.availabilityChip} />
+            <Chip label={`${resume.selected_projects.length} featured project impacts`} className={styles.availabilityChip} />
+            <Chip label="React architecture + API coordination" className={styles.availabilityChip} />
+          </Stack>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 1.6 }}>
+            Looking for a frontend engineer who can structure complex workflows, align API boundaries early, and ship reliably through production handoff.
           </Typography>
-
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} useFlexGap flexWrap="wrap">
             <Button
               variant="contained"
@@ -78,15 +106,12 @@ export default function ResumePage() {
               onClick={handlePdfDownload}
               disabled={!HAS_RESUME_PDF}
             >
-              Download PDF
+              Download PDF resume
+            </Button>
+            <Button variant="outlined" endIcon={<ArrowOutwardRoundedIcon />} onClick={() => navigate('/contact')}>
+              Start hiring conversation
             </Button>
           </Stack>
-
-          {!HAS_RESUME_PDF && (
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1.2 }}>
-              Final PDF will be enabled after review upload.
-            </Typography>
-          )}
         </CardContent>
       </Card>
 
