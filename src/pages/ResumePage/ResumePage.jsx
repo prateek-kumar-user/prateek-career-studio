@@ -7,7 +7,7 @@ import resume from '../../content/resume.json';
 import styles from './ResumePage.module.scss';
 
 const RESUME_PDF_PATH = '/resume/prateek-kumar-master-resume-1page.pdf';
-const HAS_RESUME_PDF = false; // set true after adding final checked PDF
+const HAS_RESUME_PDF = true;
 
 function ymLabel(ym) {
   if (!ym) return '';
