@@ -5,7 +5,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import site from '../../content/site.json';
 import resume from '../../content/resume.json';
-import GoogleReadyContactForm from '../../components/GoogleReadyContactForm/GoogleReadyContactForm';
 
 import styles from './ContactPage.module.scss';
 
@@ -64,7 +63,18 @@ export default function ContactPage() {
 
         <Card variant="outlined" className={styles.full}>
           <CardContent>
-            <GoogleReadyContactForm />
+            <Typography variant="h3" sx={{ mb: 1.2 }}>Direct contact</Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1.6 }}>
+              Share hiring details directly by email or LinkedIn message. Response is typically within one business day.
+            </Typography>
+            <Stack spacing={1}>
+              <Button variant="contained" startIcon={<MailOutlineRoundedIcon />} onClick={() => openExternal(`mailto:${contact.email}`)}>
+                Email hiring details
+              </Button>
+              <Button variant="outlined" startIcon={<LinkedInIcon />} onClick={() => openExternal(contact.linkedin)}>
+                Message on LinkedIn
+              </Button>
+            </Stack>
           </CardContent>
         </Card>
       </Box>
