@@ -16,7 +16,7 @@ import styles from './ProjectsPage.module.scss';
 const PROJECT_PRESENTATION = {
   cargo_web: {
     title: 'Cargo Web Modernization Program',
-    subtitle: 'Legacy desktop-to-web migration for production logistics workflow',
+    subtitle: 'Desktop-to-web migration for nationwide logistics workflows',
     visualSlots: [
       {
         src: '/projects/cargo-web/screenshot-operations-dashboard.png',
@@ -32,7 +32,7 @@ const PROJECT_PRESENTATION = {
   },
   platform_consolidation: {
     title: 'Platform Consolidation Initiative',
-    subtitle: 'Unified architecture for website builder, booking, payment, and mobile delivery',
+    subtitle: 'Unified architecture for booking, payments, and delivery surfaces',
     visualSlots: [
       {
         src: '/projects/platform-consolidation/screenshot-admin-workflow.png',
@@ -137,33 +137,33 @@ function ProjectBlock({ projectKey, project }) {
 
           {project.system_role && (
             <Typography variant="body2" color="text.secondary">
-              <strong>Role scope:</strong> {project.system_role}
+              <strong>Role:</strong> {project.system_role}
             </Typography>
           )}
 
           <Box className={styles.scanRow}>
-            <Chip size="small" label={`${decisions.length || 1} architectural decisions`} variant="outlined" />
-            <Chip size="small" label={`${outcomes.length || 1} delivery outcomes`} variant="outlined" />
-            {project.durability && <Chip size="small" label="Long-term production durability" color="secondary" variant="outlined" />}
+            <Chip size="small" label={`${decisions.length || 1} technical decisions`} variant="outlined" />
+            <Chip size="small" label={`${outcomes.length || 1} outcomes`} variant="outlined" />
+            {project.durability && <Chip size="small" label="Long-term durability" color="secondary" variant="outlined" />}
           </Box>
 
           <Divider sx={{ borderColor: 'rgba(255,255,255,0.1)' }} />
 
           <Box className={styles.detailGrid}>
-            <StorySection label="Business and delivery context" items={challenge} />
-            <StorySection label="Technical strategy" items={decisions} />
-            <StorySection label="Execution outcomes" items={outcomes} />
+            <StorySection label="Context" items={challenge} />
+            <StorySection label="Approach" items={decisions} />
+            <StorySection label="Results" items={outcomes} />
           </Box>
 
           {project.durability && (
             <Typography variant="body2" color="text.secondary">
-              <strong>Durability signal:</strong> {project.durability}
+              <strong>Durability:</strong> {project.durability}
             </Typography>
           )}
 
           <Box>
             <Typography variant="overline" color="text.secondary" className={styles.sectionLabel}>
-              Visual evidence (screenshots and workflow diagrams)
+              Visual evidence (screenshots + diagrams)
             </Typography>
             <Box className={styles.visualGrid}>
               {presentation.visualSlots.map((slot) => (
@@ -183,9 +183,9 @@ export default function ProjectsPage() {
   return (
     <Box className={styles.page}>
       <Box className={styles.header}>
-        <Typography variant="h2">Project portfolio highlights</Typography>
+        <Typography variant="h2">Project case studies</Typography>
         <Typography variant="body1" color="text.secondary">
-          Recruiter and hiring-manager oriented case studies grounded in canonical project stories: context, technical decisions, and measurable delivery outcomes.
+          Databank-grounded portfolio stories showing business context, architecture choices, and delivery outcomes.
         </Typography>
       </Box>
 

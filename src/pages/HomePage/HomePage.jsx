@@ -70,30 +70,29 @@ export default function HomePage() {
       detail: 'Based on listed engineering experience from 2019 to present.'
     },
     {
-      label: 'Documented case studies',
+      label: 'Case studies with documented decisions',
       value: `${Object.keys(signature_projects).length}`,
-      detail: 'Each project includes context, architecture choices, and outcomes.'
+      detail: 'Each project shows context, architecture choices, and outcomes.'
     },
     {
-      label: 'Government mobile launch window',
+      label: 'Government launch turnaround',
       value: '1 week',
       detail: 'Delivered Android and iOS for AWTAR / KSRTC within deadline.'
     }
   ];
 
   const capabilities = [
-    'Systems-first problem solving for workflow-heavy React products',
-    'API contract and client-boundary design with backend teams',
-    'Performance and reliability improvements through targeted refactoring',
-    'Reusable platform design for multi-tenant and white-label delivery',
-    'Execution ownership from design to release across cross-functional teams',
-    'Pragmatic mobile delivery strategy using React Native when timeline risk is high'
+    'React architecture for workflow-heavy products',
+    'Client↔API boundary design and contract alignment',
+    'Profiling-led performance and reliability improvements',
+    'Reusable platform strategy for white-label/multi-tenant systems',
+    'Execution ownership from planning through release'
   ];
 
   const outcomes = [
-    resume.selected_projects[0].impact,
-    resume.selected_projects[1].impact,
-    resume.selected_projects[2].impact
+    profile.signature_projects.cargo_web.outcomes[4],
+    profile.signature_projects.platform_consolidation.outcomes[1],
+    profile.signature_projects.awtar_ksrtc.result[0]
   ];
 
   return (
@@ -102,27 +101,26 @@ export default function HomePage() {
         <Box className={styles.heroOverlay}>
           <Box className={styles.heroContent}>
             <Stack spacing={2.2} className={styles.fadeUp}>
-              <Chip label="Open to full-time and freelance engineering roles" color="primary" sx={{ alignSelf: 'flex-start' }} />
+              <Chip label="Open to full-time and freelance roles" color="primary" sx={{ alignSelf: 'flex-start' }} />
 
               <Typography variant="h1">{identity.name}</Typography>
 
               <Typography variant="h2" className={styles.headline}>
-                Senior Software Engineer — React architecture, client↔API boundary design, and production delivery
+                {identity.positioning}
               </Typography>
 
               <Typography variant="body1" className={styles.heroLead}>
-                Role fit: {resume.summary[0]}
+                {resume.summary[0]}
               </Typography>
 
               <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 880 }}>
-                Primary value: builds stable, maintainable product systems by improving frontend architecture,
-                integration boundaries, and release reliability.
+                {identity.core_trait}
               </Typography>
 
               <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" className={styles.tags}>
                 <Chip label={`Based in ${identity.location}`} variant="outlined" />
                 {identity.availability?.remote && <Chip label="Remote-ready" variant="outlined" />}
-                {identity.availability?.full_time && <Chip label="Available for full-time" variant="outlined" />}
+                {identity.availability?.full_time && <Chip label="Open to full-time" variant="outlined" />}
               </Stack>
 
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2}>
@@ -167,7 +165,7 @@ export default function HomePage() {
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h3" sx={{ mb: 1.2 }}>
-              Top capabilities
+              Core strengths
             </Typography>
             <Stack spacing={0.9}>
               {capabilities.map((item) => (
@@ -187,7 +185,7 @@ export default function HomePage() {
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h3" sx={{ mb: 1.2 }}>
-              Selected outcomes
+              Delivery outcomes
             </Typography>
             <Stack spacing={1.2}>
               {outcomes.map((outcome) => (
@@ -198,11 +196,10 @@ export default function HomePage() {
             </Stack>
 
             <Typography variant="h3" sx={{ mt: 2.2, mb: 1.1 }}>
-              Hiring CTA
+              Need this in your team?
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              If your team needs a senior engineer for React architecture, API coordination, and reliable delivery,
-              use the contact page or email directly.
+              For hiring conversations around React architecture, API coordination, and reliable delivery, use email or LinkedIn.
             </Typography>
             <Button variant="contained" sx={{ mt: 1.4 }} onClick={() => navigate('/contact')}>
               Go to contact details

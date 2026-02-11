@@ -60,7 +60,7 @@ export default function ResumePage() {
       <Box className={styles.header}>
         <Typography variant="h2">Resume overview</Typography>
         <Typography variant="body1" color="text.secondary">
-          Experience and skills organized from databank-backed resume evidence for fast hiring review while staying ATS-friendly.
+          Fast hiring scan of experience, skills, and delivery evidence sourced from resume databank content.
         </Typography>
       </Box>
 
@@ -68,7 +68,7 @@ export default function ResumePage() {
         <CardContent>
           <Typography variant="h3" sx={{ mb: 1 }}>Download resume</Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 1.5 }}>
-            Public download is PDF-only.
+            Public resume is available as a checked PDF.
           </Typography>
 
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} useFlexGap flexWrap="wrap">
@@ -78,7 +78,7 @@ export default function ResumePage() {
               onClick={handlePdfDownload}
               disabled={!HAS_RESUME_PDF}
             >
-              Download checked PDF
+              Download PDF
             </Button>
           </Stack>
 

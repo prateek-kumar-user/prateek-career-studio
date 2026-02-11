@@ -2,10 +2,10 @@
   "identity": {
     "name": "Prateek Kumar",
     "primary_title": "Senior Software Engineer",
-    "positioning": "Senior software engineer who turns fragile product codebases into stable, API-driven systems teams can ship on confidently.",
-    "core_trait": "Moves deliberately to the layer where the system is leaking and fixes structural problems before they become recurring incidents",
+    "positioning": "Senior software engineer who stabilizes workflow-heavy products by improving React architecture and client↔API boundaries.",
+    "core_trait": "Moves to the layer where systems leak, fixes structural issues early, and prevents repeat production incidents.",
     "engineering_identity": "Cross-layer engineer (frontend architecture, API contracts, operations)",
-    "location": "India",
+    "location": "Bengaluru, Karnataka, India",
     "availability": {
       "full_time": true,
       "freelance": true,
@@ -16,21 +16,21 @@
   "engineering_philosophy": {
     "problem_solving_style": [
       "Dissects problems before coding",
-      "Builds mental models of systems before implementation",
+      "Builds system-level mental models before implementation",
       "Avoids trial-and-error driven development",
       "Optimizes for durability and clarity over novelty"
     ],
     "system_thinking": [
       "Prefers explicit boundaries over tight coupling",
       "Moves complexity to the most observable and controllable layer",
-      "Designs systems so other teams can operate them independently",
-      "Values boring, stable systems that survive time and scale"
+      "Designs systems so teams can operate independently",
+      "Values stable systems that survive time and scale"
     ],
     "frontend_mindset": [
       "Mobile-first and responsive by default",
-      "Structural and semantic HTML over auto-generated markup",
-      "Minimal DOM depth and intentional component boundaries",
-      "Treats UI as a system interface, not visual decoration"
+      "Semantic structure over auto-generated markup",
+      "Intentional component boundaries and controlled DOM depth",
+      "Treats UI as a product interface, not decoration"
     ]
   },
 
@@ -38,11 +38,11 @@
     "primary_strengths": [
       "Frontend architecture for React applications",
       "System boundary design (client ↔ API)",
-      "Workflow-driven and operational product platforms",
+      "Workflow-driven product platforms",
       "Multi-tenant and white-label delivery systems"
     ],
     "cross_layer_understanding": {
-      "backend": "Strong professional background; capable of guiding API design and system boundaries without claiming DB ownership",
+      "backend": "Strong professional background; capable of guiding API design and integration boundaries without claiming deep DB ownership",
       "infrastructure": [
         "Linux-based systems",
         "Nginx / Apache",
@@ -117,12 +117,12 @@
     "role": "AI-literate engineer and system integrator",
     "understanding": [
       "Conceptual understanding of transformer-based models",
-      "Tracks evolution of AI models and practical capabilities",
-      "Understands why modern AI works, not just how to call APIs"
+      "Tracks model evolution and practical capabilities",
+      "Understands why modern AI works, not only API usage"
     ],
     "usage_pattern": [
       "Uses AI to accelerate reasoning, exploration, and implementation",
-      "Evaluates AI output structurally rather than accepting it blindly",
+      "Evaluates AI output structurally instead of accepting it blindly",
       "Avoids treating AI as a black box"
     ],
     "positioning": "Uses AI as a force multiplier while retaining human judgment for architecture and system design"
@@ -131,7 +131,7 @@
   "professional_signal": {
     "trust_indicators": [
       "Repeated long-term ownership of critical systems",
-      "Backend and DB teams rely on architectural boundaries introduced",
+      "Backend and DB teams rely on introduced architectural boundaries",
       "Consistent retention and internal trust"
     ],
     "work_style": [

@@ -18,9 +18,9 @@ export default function ContactPage() {
   return (
     <Box className={styles.page}>
       <Box className={styles.header}>
-        <Typography variant="h2">Let’s build reliable products together</Typography>
+        <Typography variant="h2">Contact</Typography>
         <Typography variant="body1" color="text.secondary">
-          Open to full-time roles, consulting engagements, and architecture-focused collaborations.
+          Open to full-time roles, consulting, and architecture-focused product collaborations.
         </Typography>
       </Box>
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
             <Stack spacing={1.5}>
               <Typography variant="h3">Hiring quick view</Typography>
               <Typography variant="body2" color="text.secondary">
-                Best fit: teams modernizing complex product workflows and needing strong frontend/API execution.
+                Best fit: teams modernizing complex workflows and looking for strong React architecture plus API coordination.
               </Typography>
               <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
                 {resume.availability.full_time && <Chip label="Full-time" color="primary" />}
@@ -49,12 +49,12 @@ export default function ContactPage() {
 
         <Card variant="outlined">
           <CardContent>
-            <Typography variant="h3" sx={{ mb: 1.4 }}>Contact actions</Typography>
+            <Typography variant="h3" sx={{ mb: 1.4 }}>Contact channels</Typography>
             <Stack spacing={1}>
-              <Button variant="contained" startIcon={<MailOutlineRoundedIcon />} onClick={() => openExternal(`mailto:${contact.email}`)}>
+              <Button className={styles.actionButton} variant="contained" startIcon={<MailOutlineRoundedIcon />} onClick={() => openExternal(`mailto:${contact.email}`)}>
                 Send email
               </Button>
-              <Button variant="outlined" startIcon={<LinkedInIcon />} onClick={() => openExternal(contact.linkedin)}>
+              <Button className={styles.actionButton} variant="outlined" startIcon={<LinkedInIcon />} onClick={() => openExternal(contact.linkedin)}>
                 Open LinkedIn
               </Button>
             </Stack>
@@ -63,15 +63,15 @@ export default function ContactPage() {
 
         <Card variant="outlined" className={styles.full}>
           <CardContent>
-            <Typography variant="h3" sx={{ mb: 1.2 }}>Direct contact</Typography>
+            <Typography variant="h3" sx={{ mb: 1.2 }}>How to reach out</Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 1.6 }}>
-              Form submission is temporarily disabled. Please share hiring details directly by email or LinkedIn message.
+              Share role context, current product constraints, and expected delivery timeline. Responses are prioritized for active hiring discussions.
             </Typography>
             <Stack spacing={1}>
-              <Button variant="contained" startIcon={<MailOutlineRoundedIcon />} onClick={() => openExternal(`mailto:${contact.email}`)}>
+              <Button className={styles.actionButton} variant="contained" startIcon={<MailOutlineRoundedIcon />} onClick={() => openExternal(`mailto:${contact.email}`)}>
                 Email hiring details
               </Button>
-              <Button variant="outlined" startIcon={<LinkedInIcon />} onClick={() => openExternal(contact.linkedin)}>
+              <Button className={styles.actionButton} variant="outlined" startIcon={<LinkedInIcon />} onClick={() => openExternal(contact.linkedin)}>
                 Message on LinkedIn
               </Button>
             </Stack>
