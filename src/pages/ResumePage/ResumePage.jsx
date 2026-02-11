@@ -27,6 +27,34 @@ function skillGroups(skills) {
 export default function ResumePage() {
   const grouped = skillGroups(resume.core_skills);
 
+  const handlePdfDownload = async (event) => {
+    event.preventDefault();
+
+    if (!HAS_RESUME_PDF) return;
+
+    try {
+      const response = await fetch(RESUME_PDF_PATH, { cache: 'no-store' });
+      if (!response.ok) {
+        throw new Error('Unable to download resume PDF.');
+      }
+
+      const blob = await response.blob();
+      const objectUrl = window.URL.createObjectURL(blob);
+
+      const anchor = document.createElement('a');
+      anchor.href = objectUrl;
+      anchor.download = 'prateek-kumar-resume.pdf';
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+
+      window.URL.revokeObjectURL(objectUrl);
+    } catch (error) {
+      // Fallback for environments where blob download is restricted.
+      window.location.assign(RESUME_PDF_PATH);
+    }
+  };
+
   return (
     <Box className={styles.page}>
       <Box className={styles.header}>
@@ -47,7 +75,7 @@ export default function ResumePage() {
             <Button
               variant="contained"
               startIcon={<DownloadRoundedIcon />}
-              href={HAS_RESUME_PDF ? RESUME_PDF_PATH : undefined}
+              onClick={handlePdfDownload}
               disabled={!HAS_RESUME_PDF}
             >
               Download checked PDF
