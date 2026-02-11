@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 
 import profile from '../../content/profile.json';
+import projectStories from '../../../data-bank/project-stories.json';
 
 import styles from './ProjectsPage.module.scss';
 
@@ -64,11 +65,13 @@ const PROJECT_PRESENTATION = {
   }
 };
 
+const storyMap = Object.fromEntries(projectStories.project_stories.map((story) => [story.id, story]));
+
 function StorySection({ label, items }) {
   if (!items?.length) return null;
 
   return (
-    <Box>
+    <Box className={styles.storySection}>
       <Typography variant="overline" color="text.secondary" className={styles.sectionLabel}>
         {label}
       </Typography>
@@ -115,16 +118,24 @@ function ProjectVisualSlot({ slot }) {
   );
 }
 
+function resolveStory(projectKey) {
+  if (projectKey === 'cargo_web') return storyMap['cargo-web'];
+  if (projectKey === 'platform_consolidation') return storyMap['platform-consolidation'];
+  if (projectKey === 'awtar_ksrtc') return storyMap['awtar-ksrtc'];
+  return undefined;
+}
+
 function ProjectBlock({ projectKey, project }) {
   const presentation = PROJECT_PRESENTATION[projectKey];
-  const challenge = [project.context, project.scope].filter(Boolean);
-  const decisions = [project.core_shift, project.judgment_call, ...(project.decisions ?? [])].filter(Boolean);
-  const outcomes = [...(project.outcomes ?? []), ...(project.result ?? [])].filter(Boolean);
+  const story = resolveStory(projectKey);
+  const challenge = [project.context, project.scope, story?.problem].filter(Boolean);
+  const decisions = [project.core_shift, project.judgment_call, ...(project.decisions ?? []), ...(story?.actions ?? [])].filter(Boolean);
+  const outcomes = [...(project.outcomes ?? []), ...(project.result ?? []), ...(story?.outcomes ?? [])].filter(Boolean);
 
   return (
     <Card variant="outlined" className={styles.card}>
       <CardContent>
-        <Stack spacing={1.6}>
+        <Stack spacing={1.8}>
           <Box className={styles.titleRow}>
             <Box>
               <Typography variant="h3">{presentation.title}</Typography>
@@ -132,8 +143,14 @@ function ProjectBlock({ projectKey, project }) {
                 {presentation.subtitle}
               </Typography>
             </Box>
-            {project.status && <Chip size="small" label={project.status} color="primary" variant="outlined" />}
+            {project.status && <Chip size="small" label={project.status} color="primary" className={styles.badgeChip} />}
           </Box>
+
+          {story?.elevator_pitch && (
+            <Typography variant="body2" className={styles.elevatorPitch}>
+              {story.elevator_pitch}
+            </Typography>
+          )}
 
           {project.system_role && (
             <Typography variant="body2" color="text.secondary">
@@ -142,9 +159,10 @@ function ProjectBlock({ projectKey, project }) {
           )}
 
           <Box className={styles.scanRow}>
-            <Chip size="small" label={`${decisions.length || 1} technical decisions`} variant="outlined" />
-            <Chip size="small" label={`${outcomes.length || 1} outcomes`} variant="outlined" />
-            {project.durability && <Chip size="small" label="Long-term durability" color="secondary" variant="outlined" />}
+            <Chip size="small" label={`${decisions.length || 1} technical decisions`} className={styles.infoChip} />
+            <Chip size="small" label={`${outcomes.length || 1} outcomes`} className={styles.infoChip} />
+            {project.durability && <Chip size="small" label="Long-term durability" className={styles.infoChip} />}
+            {story?.best_for_roles?.[0] && <Chip size="small" label={`Best fit: ${story.best_for_roles[0]}`} className={styles.infoChip} />}
           </Box>
 
           <Divider sx={{ borderColor: 'rgba(255,255,255,0.1)' }} />

@@ -12,10 +12,6 @@
   display: grid;
   gap: 14px;
   grid-template-columns: 1fr;
-
-  @media (min-width: 980px) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .card {
@@ -34,14 +30,38 @@
   align-items: flex-start;
 }
 
+.badgeChip {
+  color: #05111e !important;
+  font-weight: 680 !important;
+}
+
+.elevatorPitch {
+  color: #e9f4ff;
+  font-weight: 560;
+  line-height: 1.7;
+}
+
 .sectionLabel {
   letter-spacing: 0.08em;
+}
+
+.storySection {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(8, 16, 30, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .scanRow {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.infoChip {
+  background: rgba(115, 217, 255, 0.18) !important;
+  border: 1px solid rgba(115, 217, 255, 0.4) !important;
+  color: #eef8ff !important;
 }
 
 .detailGrid {
