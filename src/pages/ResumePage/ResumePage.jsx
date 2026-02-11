@@ -49,7 +49,7 @@ export default function ResumePage() {
       anchor.remove();
 
       window.URL.revokeObjectURL(objectUrl);
-    } catch (error) {
+    } catch {
       // Fallback for environments where blob download is restricted.
       window.location.assign(RESUME_PDF_PATH);
     }
