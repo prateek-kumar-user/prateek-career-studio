@@ -5,7 +5,7 @@ import styles from './GoogleReadyContactForm.module.scss';
 
 const GOOGLE_FORM_CONFIG = {
   enabled: true,
-  actionUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScRD1FumDKrbdyW36cOiPSnQRa7EjX13L7S3fouJxPgVwx8kQ/formResponse',
+  viewUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScRD1FumDKrbdyW36cOiPSnQRa7EjX13L7S3fouJxPgVwx8kQ/viewform',
   fields: {
     name: 'entry.2005620554',
     email: 'entry.1045781291',
@@ -18,13 +18,22 @@ const GOOGLE_FORM_CONFIG = {
 export default function GoogleReadyContactForm() {
   const [submitted, setSubmitted] = React.useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const params = new URLSearchParams({ usp: 'pp_url' });
+
+    Object.values(GOOGLE_FORM_CONFIG.fields).forEach((fieldName) => {
+      const value = String(formData.get(fieldName) || '').trim();
+      if (value) params.set(fieldName, value);
+    });
+
+    const prefillUrl = `${GOOGLE_FORM_CONFIG.viewUrl}?${params.toString()}`;
+    window.open(prefillUrl, '_blank', 'noopener,noreferrer');
     setSubmitted(true);
   };
 
-  if (!GOOGLE_FORM_CONFIG.enabled) {
-    return null;
-  }
+  if (!GOOGLE_FORM_CONFIG.enabled) return null;
 
   return (
     <Box>
@@ -32,17 +41,10 @@ export default function GoogleReadyContactForm() {
         Contact for hiring
       </Typography>
       <Typography variant="body2" color="text.secondary" sx={{ mb: 1.6 }}>
-        Share role details or project requirements. I will respond by email.
+        Fill this form and continue to Google submission.
       </Typography>
 
-      <Box
-        component="form"
-        className={styles.form}
-        action={GOOGLE_FORM_CONFIG.actionUrl}
-        method="post"
-        target="hidden_iframe"
-        onSubmit={handleSubmit}
-      >
+      <Box component="form" className={styles.form} onSubmit={handleSubmit}>
         <Stack spacing={1.1}>
           <TextField label="Full name" name={GOOGLE_FORM_CONFIG.fields.name} fullWidth required />
           <TextField label="Email" type="email" name={GOOGLE_FORM_CONFIG.fields.email} fullWidth required />
@@ -58,16 +60,14 @@ export default function GoogleReadyContactForm() {
           />
 
           <Button variant="contained" type="submit">
-            Send inquiry
+            Continue to secure submit
           </Button>
         </Stack>
       </Box>
 
-      <iframe title="hidden-google-form-target" name="hidden_iframe" style={{ display: 'none' }} />
-
       {submitted && (
-        <Alert severity="success" sx={{ mt: 1.4 }}>
-          Thanks. Your inquiry has been submitted.
+        <Alert severity="info" sx={{ mt: 1.4 }}>
+          A Google Form tab has opened with your details prefilled. Click Submit there to complete inquiry.
         </Alert>
       )}
     </Box>
