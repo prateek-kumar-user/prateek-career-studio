@@ -1,50 +1,52 @@
 import React from 'react';
-import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, Stack, TextField, Typography } from '@mui/material';
 
 import styles from './GoogleReadyContactForm.module.scss';
 
 const GOOGLE_FORM_CONFIG = {
-  enabled: false,
-  actionUrl: '', // TODO: paste https://docs.google.com/forms/d/e/.../formResponse
+  enabled: true,
+  actionUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScRD1FumDKrbdyW36cOiPSnQRa7EjX13L7S3fouJxPgVwx8kQ/formResponse',
   fields: {
-    name: 'entry.REPLACE_NAME_ID',
-    email: 'entry.REPLACE_EMAIL_ID',
-    company: 'entry.REPLACE_COMPANY_ID',
-    message: 'entry.REPLACE_MESSAGE_ID'
+    name: 'entry.2005620554',
+    email: 'entry.1045781291',
+    phone: 'entry.1166974658',
+    company: 'entry.47388915',
+    message: 'entry.456489416'
   }
 };
 
 export default function GoogleReadyContactForm() {
   const [submitted, setSubmitted] = React.useState(false);
 
-  const handleSubmit = (event) => {
-    if (!GOOGLE_FORM_CONFIG.enabled || !GOOGLE_FORM_CONFIG.actionUrl) {
-      event.preventDefault();
-      setSubmitted(true);
-    }
+  const handleSubmit = () => {
+    setSubmitted(true);
   };
+
+  if (!GOOGLE_FORM_CONFIG.enabled) {
+    return null;
+  }
 
   return (
     <Box>
       <Typography variant="h3" sx={{ mb: 1 }}>
-        Quick intro form
+        Contact for hiring
       </Typography>
       <Typography variant="body2" color="text.secondary" sx={{ mb: 1.6 }}>
-        Designed for Google Forms wiring. Replace action URL and entry IDs to activate.
+        Share role details or project requirements. I will respond by email.
       </Typography>
 
       <Box
         component="form"
         className={styles.form}
-        action={GOOGLE_FORM_CONFIG.actionUrl || undefined}
+        action={GOOGLE_FORM_CONFIG.actionUrl}
         method="post"
-        target="_blank"
-        rel="noreferrer"
+        target="hidden_iframe"
         onSubmit={handleSubmit}
       >
         <Stack spacing={1.1}>
-          <TextField label="Your name" name={GOOGLE_FORM_CONFIG.fields.name} fullWidth required />
+          <TextField label="Full name" name={GOOGLE_FORM_CONFIG.fields.name} fullWidth required />
           <TextField label="Email" type="email" name={GOOGLE_FORM_CONFIG.fields.email} fullWidth required />
+          <TextField label="Phone number" name={GOOGLE_FORM_CONFIG.fields.phone} fullWidth />
           <TextField label="Company (optional)" name={GOOGLE_FORM_CONFIG.fields.company} fullWidth />
           <TextField
             label="Hiring need / project context"
@@ -56,15 +58,17 @@ export default function GoogleReadyContactForm() {
           />
 
           <Button variant="contained" type="submit">
-            {GOOGLE_FORM_CONFIG.enabled ? 'Send via form' : 'Preview form setup'}
+            Send inquiry
           </Button>
         </Stack>
       </Box>
 
-      {(submitted || !GOOGLE_FORM_CONFIG.enabled) && (
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 1.2 }}>
-          TODO: set <code>enabled: true</code>, add <code>actionUrl</code>, and replace each <code>entry.*</code> value using Google Form prefill IDs.
-        </Typography>
+      <iframe title="hidden-google-form-target" name="hidden_iframe" style={{ display: 'none' }} />
+
+      {submitted && (
+        <Alert severity="success" sx={{ mt: 1.4 }}>
+          Thanks. Your inquiry has been submitted.
+        </Alert>
       )}
     </Box>
   );

@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Button, Card, CardContent, Chip, Stack, Typography } from '@mui/material';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 
 import site from '../../content/site.json';
 import resume from '../../content/resume.json';
@@ -15,7 +14,7 @@ function openExternal(url) {
 }
 
 export default function ContactPage() {
-  const { contact, domain } = site;
+  const { contact } = site;
 
   return (
     <Box className={styles.page}>
@@ -58,9 +57,6 @@ export default function ContactPage() {
               </Button>
               <Button variant="outlined" startIcon={<LinkedInIcon />} onClick={() => openExternal(contact.linkedin)}>
                 Open LinkedIn
-              </Button>
-              <Button variant="outlined" startIcon={<LanguageRoundedIcon />} onClick={() => openExternal(`https://${domain}`)}>
-                Visit {domain}
               </Button>
             </Stack>
           </CardContent>
