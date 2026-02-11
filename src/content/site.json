@@ -1,0 +1,14 @@
+{
+  "domain": "userprateek.com",
+  "contact": {
+    "email": "userprateek.com@gmail.com",
+    "phone": "+919036593930",
+    "linkedin": "https://www.linkedin.com/in/userprateek"
+  },
+  "routes": [
+    { "path": "/", "label": "Home" },
+    { "path": "/projects", "label": "Projects" },
+    { "path": "/resume", "label": "Resume" },
+    { "path": "/contact", "label": "Contact" }
+  ]
+}

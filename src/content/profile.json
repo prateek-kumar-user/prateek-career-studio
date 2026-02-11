@@ -1,0 +1,141 @@
+{
+  "identity": {
+    "name": "Prateek Kumar",
+    "primary_title": "Senior Software Engineer",
+    "positioning": "Systems-oriented engineer focused on application architecture, frontend systems, and long-term stability",
+    "core_trait": "Moves deliberately to the layer where the system is leaking and fixes structural problems",
+    "engineering_identity": "Not tied to frontend or backend; operates across layers based on system risk",
+    "location": "India",
+    "availability": {
+      "full_time": true,
+      "freelance": true,
+      "remote": true
+    }
+  },
+
+  "engineering_philosophy": {
+    "problem_solving_style": [
+      "Dissects problems before coding",
+      "Builds mental models of systems before implementation",
+      "Avoids trial-and-error driven development",
+      "Optimizes for durability and clarity over novelty"
+    ],
+    "system_thinking": [
+      "Prefers explicit boundaries over tight coupling",
+      "Moves complexity to the most observable and controllable layer",
+      "Designs systems so other teams can operate them independently",
+      "Values boring, stable systems that survive time and scale"
+    ],
+    "frontend_mindset": [
+      "Mobile-first and responsive by default",
+      "Structural and semantic HTML over auto-generated markup",
+      "Minimal DOM depth and intentional component boundaries",
+      "Treats UI as a system interface, not visual decoration"
+    ]
+  },
+
+  "technical_scope": {
+    "primary_strengths": [
+      "Frontend application architecture (React)",
+      "System boundary design (client ↔ API)",
+      "Workflow-driven and operational applications",
+      "Multi-tenant and white-label platforms"
+    ],
+    "cross_layer_understanding": {
+      "backend": "Strong professional background; capable of guiding API design and system boundaries without claiming DB ownership",
+      "infrastructure": [
+        "Linux-based systems",
+        "Nginx / Apache",
+        "Reverse proxies and routing",
+        "Process managers (PM2)",
+        "CI/CD pipelines",
+        "Deployment and release strategies"
+      ]
+    },
+    "languages_and_platforms": [
+      "JavaScript",
+      "React",
+      "React Native",
+      "Android (Java)",
+      "PHP (professional, historical)",
+      "Python (professional, historical)",
+      "C / C++ (foundational, systems thinking)"
+    ]
+  },
+
+  "signature_projects": {
+    "cargo_web": {
+      "system_role": "Architectural boundary setter and frontend system owner",
+      "core_shift": "Decoupled legacy desktop client from database using API-driven web architecture",
+      "decisions": [
+        "Replaced tightly coupled EXE with web-based client",
+        "Introduced REST APIs to expose system behavior explicitly",
+        "Enabled API-level observability instead of DB-level guesswork",
+        "Designed client-heavy execution to reduce server pressure"
+      ],
+      "outcomes": [
+        "Backend and DB teams could isolate and scale load per API",
+        "Operational diagnosis improved from opaque to actionable",
+        "UI fixes became cheap and enforceable via reloads",
+        "Legacy desktop system phased out over time",
+        "Production stability improved significantly"
+      ],
+      "status": "Primary production platform used nationwide"
+    },
+
+    "platform_consolidation": {
+      "scope": "Website builder, booking workflows, payment engine, mobile delivery",
+      "decisions": [
+        "Standardized booking workflows across all customer sites",
+        "Centralized payment logic into reusable engine",
+        "Introduced React SPA where dynamic behavior mattered",
+        "Replaced thousands of native apps with React Native WebView wrapper"
+      ],
+      "outcomes": [
+        "Eliminated large-scale code duplication",
+        "Reduced release and maintenance overhead dramatically",
+        "Shifted all functional changes to a single platform",
+        "Enabled non-engineering teams to operate independently"
+      ],
+      "durability": "Architecture remains in use with minimal maintenance"
+    },
+
+    "awtar_ksrtc": {
+      "context": "Government project with fixed deadline and late iOS requirement",
+      "judgment_call": "Chose WebView-based RN wrapper over native rebuild",
+      "result": [
+        "Delivered Android and iOS apps within one week",
+        "Met contractual obligations without timeline extension",
+        "Pattern later adopted across company products"
+      ]
+    }
+  },
+
+  "ai_orientation": {
+    "role": "AI-literate engineer and system integrator",
+    "understanding": [
+      "Conceptual understanding of transformer-based models",
+      "Tracks evolution of AI models and their practical capabilities",
+      "Understands why modern AI works, not just how to use it"
+    ],
+    "usage_pattern": [
+      "Uses AI to accelerate reasoning, exploration, and implementation",
+      "Evaluates AI output structurally rather than accepting it blindly",
+      "Avoids treating AI as a black box"
+    ],
+    "positioning": "Uses AI as a force multiplier while retaining human judgment for architecture and system design"
+  },
+
+  "professional_signal": {
+    "trust_indicators": [
+      "Repeated long-term ownership of critical systems",
+      "Backend and DB teams rely on architectural boundaries introduced",
+      "Consistent retention and internal trust"
+    ],
+    "work_style": [
+      "Collaborative by default",
+      "Independent when constraints require",
+      "Calm and decisive under deadline pressure"
+    ]
+  }
+}

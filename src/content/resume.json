@@ -1,0 +1,83 @@
+{
+  "name": "Prateek Kumar",
+  "title": "Senior Software Engineer",
+  "location": "Bengaluru, Karnataka, India",
+  "contact": {
+    "email": "userprateek.com@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/userprateek",
+    "phone": "+919036593930"
+  },
+  "summary": [
+    "Systems-oriented software engineer focused on frontend application architecture (React) and stable system boundaries (client ↔ API).",
+    "Builds workflow-driven products with an emphasis on performance, observability, and long-term maintainability.",
+    "Comfortable operating across layers (frontend, API design collaboration, Linux/Nginx, CI/CD) based on system risk."
+  ],
+  "core_skills": [
+    "React.js",
+    "Redux",
+    "JavaScript",
+    "Responsive UI (mobile-first)",
+    "REST APIs",
+    "System boundary design (client ↔ API)",
+    "Performance optimization",
+    "React Native",
+    "HTML/CSS/SCSS",
+    "PHP (CodeIgniter)",
+    "MySQL",
+    "Apache / Nginx",
+    "AWS (EC2, S3)",
+    "Linux",
+    "CI/CD"
+  ],
+  "experience": [
+    {
+      "company": "Maventech Labs",
+      "role": "Senior Software Engineer",
+      "location": "Bengaluru, India",
+      "start": "2021-09",
+      "end": "Present",
+      "highlights": [
+        "Led development of responsive web applications using React.js and Redux with a focus on predictable state and maintainable UI boundaries.",
+        "Collaborated on API contracts and REST integration to reduce coupling and improve debuggability across frontend/backend teams.",
+        "Improved performance and cross-browser reliability through systematic profiling, UI render optimization, and regression-safe refactors.",
+        "Owned delivery execution: breakdown of work, reviews, and iterative releases; contributed to team workflow and reporting." 
+      ],
+      "stack": ["React", "Redux", "JavaScript", "HTML", "CSS", "REST"]
+    },
+    {
+      "company": "Travelyaari",
+      "role": "Software Engineer",
+      "location": "India",
+      "start": "2019-10",
+      "end": "2021-08",
+      "highlights": [
+        "Built and maintained customer-facing and internal web modules using React.js/Redux, with mobile-first responsive layouts.",
+        "Developed and integrated REST APIs; worked across frontend and backend to deliver end-to-end features.",
+        "Handled deployment and maintenance on Apache hosted on AWS EC2; supported static/media delivery patterns using S3.",
+        "Wrote clean, testable code and maintained responsive behavior across devices and browsers." 
+      ],
+      "stack": ["React", "Redux", "PHP", "CodeIgniter", "MySQL", "Apache", "AWS (EC2,S3)"]
+    }
+  ],
+  "education": [
+    {
+      "school": "Gurukula Kangri Vishwavidyalaya",
+      "degree": "B.Tech, Computer Science Engineering",
+      "start": "2014",
+      "end": "2018"
+    }
+  ],
+  "certifications": [
+    "Certificate for Completion of Python Training",
+    "JavaScript (Basic) Certificate"
+  ],
+  "languages": [
+    { "name": "Hindi", "level": "Native" },
+    { "name": "English", "level": "Professional" }
+  ],
+  "availability": {
+    "full_time": true,
+    "freelance": true,
+    "remote": true
+  }
+}

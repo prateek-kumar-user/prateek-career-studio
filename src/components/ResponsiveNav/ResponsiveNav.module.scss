@@ -1,0 +1,18 @@
+.desktopNav {
+  display: flex;
+  gap: 8px;
+
+  /* On small screens, hide the desktop button row */
+  @media (max-width: 599px) {
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: none;
+
+  /* On small screens, show hamburger */
+  @media (max-width: 599px) {
+    display: flex;
+  }
+}
