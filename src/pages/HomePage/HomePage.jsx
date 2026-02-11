@@ -63,6 +63,38 @@ export default function HomePage() {
   const totalMonths = resume.experience.reduce((sum, job) => sum + monthDiff(job.start, job.end), 0);
   const years = Math.max(1, Math.floor(totalMonths / 12));
 
+  const rotatingLines = React.useMemo(() => [
+    'I turn fragile workflows into reliable product systems.',
+    'I clarify frontend and API contracts before teams hit production pain.',
+    'I ship with structure: plan clearly, execute steadily, release safely.'
+  ], []);
+
+  const [lineIndex, setLineIndex] = React.useState(0);
+  const [typedText, setTypedText] = React.useState('');
+  const [isDeleting, setIsDeleting] = React.useState(false);
+
+  React.useEffect(() => {
+    const fullLine = rotatingLines[lineIndex];
+    const typingDelay = isDeleting ? 34 : 56;
+
+    const timer = window.setTimeout(() => {
+      if (!isDeleting && typedText === fullLine) {
+        window.setTimeout(() => setIsDeleting(true), 850);
+        return;
+      }
+
+      if (isDeleting && typedText.length === 0) {
+        setIsDeleting(false);
+        setLineIndex((prev) => (prev + 1) % rotatingLines.length);
+        return;
+      }
+
+      setTypedText((prev) => (isDeleting ? prev.slice(0, -1) : fullLine.slice(0, prev.length + 1)));
+    }, typingDelay);
+
+    return () => window.clearTimeout(timer);
+  }, [typedText, isDeleting, lineIndex, rotatingLines]);
+
   const metrics = [
     {
       label: 'Production delivery experience',
@@ -83,9 +115,9 @@ export default function HomePage() {
 
   const capabilities = [
     'React architecture for workflow-heavy products',
-    'Client↔API boundary design and contract alignment',
+    'Client and API boundary design with explicit contracts',
     'Profiling-led performance and reliability improvements',
-    'Reusable platform strategy for white-label/multi-tenant systems',
+    'Reusable platform strategy for white-label and multi-tenant systems',
     'Execution ownership from planning through release'
   ];
 
@@ -101,7 +133,7 @@ export default function HomePage() {
         <Box className={styles.heroOverlay}>
           <Box className={styles.heroContent}>
             <Stack spacing={2.2} className={styles.fadeUp}>
-              <Chip label="Open to full-time and freelance roles" color="primary" sx={{ alignSelf: 'flex-start' }} />
+              <Chip label="Open to full-time and freelance roles" color="primary" className={styles.availabilityBanner} />
 
               <Typography variant="h1">{identity.name}</Typography>
 
@@ -113,14 +145,19 @@ export default function HomePage() {
                 {resume.summary[0]}
               </Typography>
 
+              <Typography variant="body2" className={styles.typewriter} aria-live="polite">
+                <span>{typedText}</span>
+                <span className={styles.cursor} aria-hidden="true">|</span>
+              </Typography>
+
               <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 880 }}>
                 {identity.core_trait}
               </Typography>
 
               <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" className={styles.tags}>
-                <Chip label={`Based in ${identity.location}`} variant="outlined" />
-                {identity.availability?.remote && <Chip label="Remote-ready" variant="outlined" />}
-                {identity.availability?.full_time && <Chip label="Open to full-time" variant="outlined" />}
+                <Chip label={`Based in ${identity.location}`} variant="filled" className={styles.infoChip} />
+                {identity.availability?.remote && <Chip label="Remote-ready" variant="filled" className={styles.infoChip} />}
+                {identity.availability?.full_time && <Chip label="Open to full-time" variant="filled" className={styles.infoChip} />}
               </Stack>
 
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.2}>

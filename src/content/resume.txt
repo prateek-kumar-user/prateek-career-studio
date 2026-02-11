@@ -11,7 +11,7 @@ Professional Summary
 - Trusted to lead execution across planning, code review, release coordination, and production support in cross-functional environments.
 
 Core Skills
-React.js, Redux, JavaScript, Responsive UI (mobile-first), REST APIs, System boundary design (client ↔ API), Performance optimization, React Native, HTML/CSS/SCSS, PHP (CodeIgniter), MySQL, Apache/Nginx, AWS (EC2, S3), Linux, CI/CD
+React.js, Redux, JavaScript, Responsive UI (mobile-first), REST APIs, System boundary design (client and API), Performance optimization, React Native, HTML/CSS/SCSS, PHP (CodeIgniter), MySQL, Apache/Nginx, AWS (EC2, S3), Linux, CI/CD
 
 Experience
 Maventech Labs — Senior Software Engineer

@@ -8,7 +8,7 @@
     "phone": "+919036593930"
   },
   "summary": [
-    "Senior software engineer focused on React architecture, client↔API boundary design, and reliable production delivery for workflow-heavy products.",
+    "Senior software engineer focused on React architecture, client and API boundary design, and reliable production delivery for workflow-heavy products.",
     "Builds maintainable systems by replacing tightly coupled implementations with explicit contracts and observable integration paths.",
     "Owns delivery from planning through release, including code review, cross-team coordination, and production support."
   ],
@@ -18,7 +18,7 @@
     "JavaScript",
     "Responsive UI (mobile-first)",
     "REST APIs",
-    "System boundary design (client ↔ API)",
+    "System boundary design (client and API)",
     "Performance optimization",
     "React Native",
     "HTML/CSS/SCSS",

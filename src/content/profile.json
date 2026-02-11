@@ -2,7 +2,7 @@
   "identity": {
     "name": "Prateek Kumar",
     "primary_title": "Senior Software Engineer",
-    "positioning": "Senior software engineer who stabilizes workflow-heavy products by improving React architecture and client↔API boundaries.",
+    "positioning": "Senior software engineer who moves to the layer where systems leak, then hardens React architecture and client-API boundaries before incidents repeat.",
     "core_trait": "Moves to the layer where systems leak, fixes structural issues early, and prevents repeat production incidents.",
     "engineering_identity": "Cross-layer engineer (frontend architecture, API contracts, operations)",
     "location": "Bengaluru, Karnataka, India",
@@ -37,7 +37,7 @@
   "technical_scope": {
     "primary_strengths": [
       "Frontend architecture for React applications",
-      "System boundary design (client ↔ API)",
+      "System boundary design (client and API)",
       "Workflow-driven product platforms",
       "Multi-tenant and white-label delivery systems"
     ],
