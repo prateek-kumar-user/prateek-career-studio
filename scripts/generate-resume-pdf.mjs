@@ -14,44 +14,24 @@ const page = pdf.addPage([595.28, 841.89]); // A4
 const regular = await pdf.embedFont(StandardFonts.Helvetica);
 const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
 
-const marginX = 42;
-let y = 805;
-const width = page.getWidth() - marginX * 2;
+const marginX = 38;
+const pageWidth = page.getWidth();
+const contentWidth = pageWidth - marginX * 2;
+let y = 810;
 
-const toWinAnsiSafe = (value) => String(value)
+const textColor = rgb(0.09, 0.09, 0.11);
+const mutedColor = rgb(0.33, 0.34, 0.37);
+const sectionColor = rgb(0.14, 0.14, 0.16);
+
+const toSafe = (value) => String(value)
   .replace(/↔/g, '<->')
-  .replace(/—/g, '-')
-  .replace(/–/g, '-')
+  .replace(/[—–]/g, '-')
   .replace(/•/g, '-')
   .replace(/[“”]/g, '"')
   .replace(/[’]/g, "'");
 
-const draw = (text, opts = {}) => {
-  const {
-    size = 10.5,
-    font = regular,
-    color = rgb(0.1, 0.1, 0.1),
-    leading = 14,
-    indent = 0,
-  } = opts;
-
-  const lines = wrapText(toWinAnsiSafe(text), font, size, width - indent);
-  for (const line of lines) {
-    page.drawText(line, { x: marginX + indent, y, size, font, color });
-    y -= leading;
-  }
-};
-
-const section = (title) => {
-  y -= 6;
-  page.drawLine({ start: { x: marginX, y: y + 2 }, end: { x: marginX + width, y: y + 2 }, thickness: 0.8, color: rgb(0.75, 0.75, 0.75) });
-  y -= 16;
-  draw(title.toUpperCase(), { size: 10, font: bold, leading: 13, color: rgb(0.12, 0.12, 0.12) });
-  y -= 2;
-};
-
 function wrapText(text, font, size, maxWidth) {
-  const words = text.split(/\s+/);
+  const words = toSafe(text).split(/\s+/).filter(Boolean);
   const lines = [];
   let line = '';
 
@@ -65,42 +45,115 @@ function wrapText(text, font, size, maxWidth) {
       line = word;
     }
   }
+
   if (line) lines.push(line);
   return lines;
 }
 
+function drawParagraph(text, {
+  size = 10,
+  font = regular,
+  color = textColor,
+  leading = 12.4,
+  x = marginX,
+  maxWidth = contentWidth
+} = {}) {
+  const lines = wrapText(text, font, size, maxWidth);
+  for (const line of lines) {
+    page.drawText(line, { x, y, size, font, color });
+    y -= leading;
+  }
+  return lines.length;
+}
+
+function drawBullet(text, { size = 9.8, leading = 12, indent = 10 } = {}) {
+  page.drawText('-', { x: marginX, y, size, font: regular, color: textColor });
+  drawParagraph(text, { size, leading, x: marginX + indent, maxWidth: contentWidth - indent });
+}
+
+function section(title) {
+  y -= 5;
+  page.drawLine({
+    start: { x: marginX, y: y + 2 },
+    end: { x: marginX + contentWidth, y: y + 2 },
+    thickness: 0.8,
+    color: rgb(0.8, 0.81, 0.84)
+  });
+  y -= 14;
+  drawParagraph(title.toUpperCase(), { size: 9.2, font: bold, color: sectionColor, leading: 11.4 });
+  y -= 2;
+}
+
+function drawRoleLine(job) {
+  const roleLine = `${job.role} | ${job.company}`;
+  const dateLine = `${job.start} to ${job.end}`;
+
+  page.drawText(toSafe(roleLine), { x: marginX, y, size: 10.2, font: bold, color: textColor });
+  const dateWidth = bold.widthOfTextAtSize(toSafe(dateLine), 9.4);
+  page.drawText(toSafe(dateLine), {
+    x: marginX + contentWidth - dateWidth,
+    y,
+    size: 9.4,
+    font: bold,
+    color: mutedColor
+  });
+  y -= 12.4;
+
+  drawParagraph(job.location, { size: 9.2, color: mutedColor, leading: 11.4 });
+}
+
 // Header
-draw(data.candidate.name, { size: 24, font: bold, leading: 26 });
-draw(`${data.candidate.title}  •  ${data.candidate.location}`, { size: 11, leading: 14, color: rgb(0.22, 0.22, 0.22) });
-draw(`${data.candidate.contact.email}  •  ${data.candidate.contact.phone}  •  ${data.candidate.contact.linkedin}`, { size: 9.5, leading: 13, color: rgb(0.28, 0.28, 0.28) });
+page.drawText(toSafe(data.candidate.name), { x: marginX, y, size: 22, font: bold, color: textColor });
+y -= 23;
+
+drawParagraph(`${data.candidate.title} | ${data.candidate.location}`, {
+  size: 10.3,
+  color: mutedColor,
+  leading: 12.4
+});
+
+drawParagraph(`${data.candidate.contact.email} | ${data.candidate.contact.phone} | ${data.candidate.contact.linkedin}`, {
+  size: 9.1,
+  color: mutedColor,
+  leading: 11.4
+});
 
 section('Summary');
 for (const line of data.summary.slice(0, 3)) {
-  draw(`• ${line}`, { size: 10.2, leading: 13 });
+  drawBullet(line, { size: 9.8, leading: 11.8 });
 }
 
 section('Core Skills');
-draw(data.skills.join(' • '), { size: 9.7, leading: 13 });
+drawParagraph(data.skills.join(' | '), { size: 9, leading: 11.5 });
 
 section('Experience');
 for (const job of data.experience.slice(0, 2)) {
-  draw(`${job.role} — ${job.company} (${job.start} to ${job.end})`, { size: 11, font: bold, leading: 14 });
-  draw(job.location, { size: 9.5, leading: 12, color: rgb(0.3, 0.3, 0.3) });
-  for (const h of job.highlights.slice(0, 3)) {
-    draw(`• ${h}`, { size: 9.8, leading: 12.5, indent: 4 });
+  drawRoleLine(job);
+  for (const highlight of (job.highlights ?? []).slice(0, 3)) {
+    drawBullet(highlight, { size: 9.5, leading: 11.4, indent: 10 });
   }
-  y -= 4;
+  y -= 2.4;
 }
 
-section('Project Highlights');
-for (const p of data.selected_projects.slice(0, 3)) {
-  draw(`${p.name} — ${p.focus}`, { size: 10.2, font: bold, leading: 12.5 });
-  draw(`- ${p.impact}`, { size: 9.8, leading: 12.2, indent: 4 });
+section('Selected Projects');
+for (const project of data.selected_projects.slice(0, 3)) {
+  drawParagraph(`${project.name} | ${project.focus}`, { size: 9.7, font: bold, leading: 11.8 });
+  drawBullet(project.impact, { size: 9.3, leading: 11.3, indent: 10 });
 }
 
-section('Education');
-const edu = data.education[0];
-draw(`${edu.degree}, ${edu.school} (${edu.start}-${edu.end})`, { size: 10.2, leading: 13 });
+section('Education & Certifications');
+const edu = data.education?.[0];
+if (edu) {
+  drawParagraph(`${edu.degree}, ${edu.school} (${edu.start}-${edu.end})`, { size: 9.7, leading: 11.8 });
+}
+drawParagraph(`Certifications: ${(data.certifications ?? []).join(' | ')}`, { size: 9.1, color: mutedColor, leading: 11.4 });
+
+y -= 1;
+drawParagraph(`Languages: ${(data.languages ?? []).map((l) => `${l.name} (${l.level})`).join(' | ')}`, {
+  size: 9.1,
+  color: mutedColor,
+  leading: 11.4
+});
 
 fs.mkdirSync(outputDir, { recursive: true });
 fs.writeFileSync(outputPath, await pdf.save());

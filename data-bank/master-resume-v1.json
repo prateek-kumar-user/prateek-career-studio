@@ -16,9 +16,9 @@
     }
   },
   "summary": [
-    "Senior software engineer focused on React application architecture and stable client↔API boundaries for workflow-heavy products.",
-    "Known for reducing operational friction by replacing tightly coupled implementations with maintainable, observable systems.",
-    "Operates across frontend, API collaboration, and production operations (Linux/Nginx/CI-CD) to improve delivery reliability."
+    "Senior software engineer specializing in React architecture, API contract alignment, and production-grade delivery for workflow-heavy platforms.",
+    "Builds maintainable, observable systems by replacing tightly coupled implementations with explicit boundaries and stable integration patterns.",
+    "Trusted to lead execution across planning, code review, release coordination, and production support in cross-functional environments."
   ],
   "skills": [
     "React.js",
@@ -45,10 +45,10 @@
       "start": "2021-09",
       "end": "Present",
       "highlights": [
-        "Led React/Redux development for responsive web applications with clear component boundaries and predictable state architecture.",
-        "Partnered with backend teams on API contract design, reducing integration ambiguity and improving cross-team debugging speed.",
-        "Improved reliability and rendering performance through profiling-led optimization and regression-safe refactoring.",
-        "Owned delivery execution: planning, code reviews, iterative releases, and workflow reporting across project streams."
+        "Led React/Redux architecture for responsive web products, establishing reusable component patterns and predictable state flows.",
+        "Defined and negotiated API contracts with backend teams, improving integration clarity and reducing cross-team debugging friction.",
+        "Drove profiling-led performance and reliability improvements through targeted refactoring and regression-safe release practices.",
+        "Owned delivery workflow end-to-end: sprint planning, code reviews, release coordination, and reporting across concurrent streams."
       ]
     },
     {
@@ -58,10 +58,10 @@
       "start": "2019-10",
       "end": "2021-08",
       "highlights": [
-        "Built and maintained customer-facing and internal modules using React.js/Redux with mobile-first responsive behavior.",
-        "Delivered end-to-end features across frontend and backend, including REST API development and integration.",
-        "Managed deployments and production maintenance on Apache (AWS EC2) with static/media delivery through S3.",
-        "Maintained clean, testable code and cross-browser consistency across multiple product surfaces."
+        "Built and maintained customer-facing and internal modules using React.js/Redux with mobile-first and cross-browser support.",
+        "Delivered full-stack features spanning frontend workflows, backend services, and REST API integration.",
+        "Managed deployment and production maintenance on Apache (AWS EC2) with static/media delivery through S3.",
+        "Maintained clean, testable code and supported stable releases across multiple product surfaces."
       ]
     }
   ],
@@ -69,17 +69,17 @@
     {
       "name": "Cargo Web",
       "focus": "Legacy-to-web migration with API-first boundaries",
-      "impact": "Improved observability and production stability; used in nationwide production."
+      "impact": "Shifted desktop workflows to an API-driven web platform used in nationwide production, improving observability and operational stability."
     },
     {
       "name": "Platform Consolidation",
-      "focus": "Unified booking, payments, and mobile delivery model",
-      "impact": "Reduced duplication and maintenance overhead; durable architecture."
+      "focus": "Unified booking, payments, and mobile delivery architecture",
+      "impact": "Reduced duplicate implementation and maintenance overhead by centralizing shared product capabilities into one durable platform."
     },
     {
       "name": "AWTAR / KSRTC",
-      "focus": "Deadline-critical mobile delivery",
-      "impact": "Delivered Android + iOS within one week using pragmatic RN strategy."
+      "focus": "Deadline-critical government launch",
+      "impact": "Delivered Android and iOS in one week by selecting a pragmatic React Native WebView strategy without extending timeline."
     }
   ],
   "education": [
