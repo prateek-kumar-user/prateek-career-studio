@@ -26,6 +26,13 @@
   grid-column: 1 / -1;
 }
 
+.availabilityChip {
+  background: rgba(115, 217, 255, 0.2) !important;
+  border: 1px solid rgba(115, 217, 255, 0.5) !important;
+  color: #eef8ff !important;
+  font-weight: 650 !important;
+}
+
 .timeline {
   position: relative;
   display: grid;
@@ -47,6 +54,11 @@
   box-shadow: 0 0 0 4px rgba(115, 217, 255, 0.2);
 }
 
+.stackChip {
+  border-color: rgba(115, 217, 255, 0.3) !important;
+  color: #dcebff !important;
+}
+
 .skillGroups {
   display: grid;
   gap: 14px;
@@ -55,4 +67,15 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: start;
   }
+}
+
+.skillGroupCard {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 12px;
+  background: rgba(7, 13, 24, 0.52);
+}
+
+.skillChip {
+  color: #ebf5ff !important;
 }

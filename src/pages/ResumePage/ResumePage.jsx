@@ -18,9 +18,9 @@ function ymLabel(ym) {
 
 function skillGroups(skills) {
   return {
-    Frontend: skills.filter((s) => /React|Redux|JavaScript|HTML|CSS|Responsive|Performance/i.test(s)),
-    'API & Backend Collaboration': skills.filter((s) => /REST|PHP|MySQL|boundary/i.test(s)),
-    'DevOps & Delivery': skills.filter((s) => /Apache|Nginx|AWS|Linux|CI\/CD/i.test(s))
+    'Frontend Architecture': skills.filter((s) => /React|Redux|JavaScript|HTML|CSS|Responsive|Performance/i.test(s)),
+    'API and System Boundaries': skills.filter((s) => /REST|PHP|MySQL|boundary/i.test(s)),
+    'Operations and Delivery': skills.filter((s) => /Apache|Nginx|AWS|Linux|CI\/CD/i.test(s))
   };
 }
 
@@ -107,10 +107,13 @@ export default function ResumePage() {
         <Card variant="outlined" className={styles.summaryCard}>
           <CardContent>
             <Typography variant="h3" sx={{ mb: 1.25 }}>Availability</Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1.2 }}>
+              Available for full-time roles, consulting, and remote collaboration.
+            </Typography>
             <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
-              {resume.availability?.full_time && <Chip label="Full-time" color="primary" />}
-              {resume.availability?.freelance && <Chip label="Freelance" color="secondary" />}
-              {resume.availability?.remote && <Chip label="Remote" variant="outlined" />}
+              {resume.availability?.full_time && <Chip label="Full-time" className={styles.availabilityChip} />}
+              {resume.availability?.freelance && <Chip label="Freelance" className={styles.availabilityChip} />}
+              {resume.availability?.remote && <Chip label="Remote" className={styles.availabilityChip} />}
             </Stack>
           </CardContent>
         </Card>
@@ -147,7 +150,7 @@ export default function ResumePage() {
 
                     <Stack direction="row" spacing={0.8} useFlexGap flexWrap="wrap" sx={{ mt: 1.1 }}>
                       {job.stack.map((tech) => (
-                        <Chip key={tech} label={tech} size="small" variant="outlined" />
+                        <Chip key={tech} label={tech} size="small" variant="outlined" className={styles.stackChip} />
                       ))}
                     </Stack>
 
@@ -161,14 +164,27 @@ export default function ResumePage() {
 
         <Card variant="outlined" className={styles.full}>
           <CardContent>
+            <Typography variant="h3" sx={{ mb: 1.25 }}>Selected project impact</Typography>
+            <Stack spacing={0.85}>
+              {resume.selected_projects.map((item) => (
+                <Typography key={item.name} variant="body2" color="text.secondary">
+                  <strong>{item.name}:</strong> {item.impact}
+                </Typography>
+              ))}
+            </Stack>
+          </CardContent>
+        </Card>
+
+        <Card variant="outlined" className={styles.full}>
+          <CardContent>
             <Typography variant="h3" sx={{ mb: 1.25 }}>Skill groups</Typography>
             <Box className={styles.skillGroups}>
               {Object.entries(grouped).map(([groupName, list]) => (
-                <Box key={groupName}>
+                <Box key={groupName} className={styles.skillGroupCard}>
                   <Typography variant="subtitle2" sx={{ mb: 1 }}>{groupName}</Typography>
                   <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
                     {list.map((skill) => (
-                      <Chip key={skill} label={skill} />
+                      <Chip key={skill} label={skill} className={styles.skillChip} />
                     ))}
                   </Stack>
                 </Box>
