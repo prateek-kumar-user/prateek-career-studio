@@ -16,8 +16,9 @@
     background-image: var(--hero-bg);
     background-size: cover;
     background-position: center;
-    filter: saturate(1.05);
-    transform: scale(1.02);
+    filter: saturate(1.02);
+    transform: scale(1.01);
+    will-change: transform;
   }
 
   &::after {
@@ -101,6 +102,24 @@
   border-radius: 18px;
 }
 
+.proofGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 720px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.proofCard {
+  height: 100%;
+
+  h3 {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+  }
+}
+
 .profileTile {
   height: fit-content;
   order: 2;
@@ -140,7 +159,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cursor {
+  .cursor,
+  .fadeUp {
     animation: none;
   }
 }

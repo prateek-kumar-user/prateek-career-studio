@@ -5,7 +5,30 @@ import profile from '../../content/profile.json';
 
 import styles from './ProjectsPage.module.scss';
 
+function StorySection({ label, items, emphasize = false }) {
+  if (!items?.length) return null;
+
+  return (
+    <Box>
+      <Typography variant="overline" color="text.secondary">
+        {label}
+      </Typography>
+      <Stack spacing={0.75} sx={{ mt: 0.4 }}>
+        {items.map((item) => (
+          <Typography key={item} variant={emphasize ? 'body1' : 'body2'}>
+            • {item}
+          </Typography>
+        ))}
+      </Stack>
+    </Box>
+  );
+}
+
 function ProjectBlock({ title, project }) {
+  const challenge = [project.context, project.scope].filter(Boolean);
+  const action = [project.core_shift, project.judgment_call, ...(project.decisions ?? [])].filter(Boolean);
+  const result = [...(project.outcomes ?? []), ...(project.result ?? [])].filter(Boolean);
+
   return (
     <Card variant="outlined" className={styles.card}>
       <CardContent>
@@ -17,70 +40,25 @@ function ProjectBlock({ title, project }) {
 
           {project.system_role && (
             <Typography variant="body2" color="text.secondary">
-              <strong>Role:</strong> {project.system_role}
+              <strong>Ownership:</strong> {project.system_role}
             </Typography>
           )}
 
-          {project.scope && (
-            <Typography variant="body2" color="text.secondary">
-              <strong>Scope:</strong> {project.scope}
-            </Typography>
-          )}
-
-          {project.context && <Typography variant="body2" color="text.secondary">{project.context}</Typography>}
-          {project.core_shift && <Typography variant="body1">{project.core_shift}</Typography>}
-          {project.judgment_call && <Typography variant="body1">{project.judgment_call}</Typography>}
+          <Box className={styles.scanRow}>
+            <Chip size="small" label={`${action.length || 1} key decisions`} variant="outlined" />
+            <Chip size="small" label={`${result.length || 1} delivery outcomes`} variant="outlined" />
+            {project.durability && <Chip size="small" label="Durable architecture" color="secondary" variant="outlined" />}
+          </Box>
 
           <Divider sx={{ borderColor: 'rgba(255,255,255,0.1)' }} />
 
-          {project.decisions?.length ? (
-            <Box>
-              <Typography variant="overline" color="text.secondary">
-                Technical decisions
-              </Typography>
-              <Stack spacing={0.75} sx={{ mt: 0.4 }}>
-                {project.decisions.map((d) => (
-                  <Typography key={d} variant="body2">
-                    • {d}
-                  </Typography>
-                ))}
-              </Stack>
-            </Box>
-          ) : null}
-
-          {project.outcomes?.length ? (
-            <Box>
-              <Typography variant="overline" color="text.secondary">
-                Outcomes
-              </Typography>
-              <Stack spacing={0.75} sx={{ mt: 0.4 }}>
-                {project.outcomes.map((o) => (
-                  <Typography key={o} variant="body2">
-                    • {o}
-                  </Typography>
-                ))}
-              </Stack>
-            </Box>
-          ) : null}
-
-          {project.result?.length ? (
-            <Box>
-              <Typography variant="overline" color="text.secondary">
-                Delivery result
-              </Typography>
-              <Stack spacing={0.75} sx={{ mt: 0.4 }}>
-                {project.result.map((r) => (
-                  <Typography key={r} variant="body2">
-                    • {r}
-                  </Typography>
-                ))}
-              </Stack>
-            </Box>
-          ) : null}
+          <StorySection label="Challenge" items={challenge} />
+          <StorySection label="Action" items={action} emphasize />
+          <StorySection label="Result" items={result} />
 
           {project.durability && (
             <Typography variant="body2" color="text.secondary">
-              <strong>Durability:</strong> {project.durability}
+              <strong>Durability signal:</strong> {project.durability}
             </Typography>
           )}
         </Stack>
@@ -97,7 +75,7 @@ export default function ProjectsPage() {
       <Box className={styles.header}>
         <Typography variant="h2">Selected projects</Typography>
         <Typography variant="body1" color="text.secondary">
-          Case studies focused on architecture ownership, implementation choices, and measurable delivery outcomes.
+          Case studies written in a challenge → action → result format for fast recruiter and hiring manager review.
         </Typography>
       </Box>
 

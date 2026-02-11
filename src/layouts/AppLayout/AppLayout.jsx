@@ -20,7 +20,7 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 import site from '../../content/site.json';
 import profile from '../../content/profile.json';
-import avatar from '../../assets/avatar.png';
+import avatar from '../../assets/avatar-placeholder.svg';
 
 import styles from './AppLayout.module.scss';
 
@@ -60,7 +60,12 @@ export default function AppLayout() {
           <Card variant="outlined" className={styles.sidebar}>
             <Box className={styles.sidebarInner}>
               <Stack spacing={2}>
-                <Avatar src={avatar} alt={profile.identity.name} className={styles.profileAvatar} />
+                <Avatar
+                  src={avatar}
+                  alt={profile.identity.name}
+                  className={styles.profileAvatar}
+                  imgProps={{ loading: 'lazy', decoding: 'async' }}
+                />
                 <Box>
                   <Typography variant="h3">{profile.identity.name}</Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ mt: 0.6 }}>
@@ -102,7 +107,12 @@ export default function AppLayout() {
 
         <Card variant="outlined" className={styles.mobileProfileCard}>
           <Stack spacing={1.2} direction="row" alignItems="center">
-            <Avatar src={avatar} alt={profile.identity.name} sx={{ width: 58, height: 58 }} />
+            <Avatar
+              src={avatar}
+              alt={profile.identity.name}
+              sx={{ width: 58, height: 58 }}
+              imgProps={{ loading: 'lazy', decoding: 'async' }}
+            />
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
                 {profile.identity.name}
