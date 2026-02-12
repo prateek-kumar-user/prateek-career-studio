@@ -23,11 +23,11 @@ const PROJECT_PRESENTATION = {
     subtitle: 'Desktop-to-web migration for nationwide logistics workflows',
     visualSlots: [
       {
-        src: '/projects/cargo-web/operations-dashboard.svg',
+        src: '/projects/cargo-web/operations-dashboard.jpg',
         caption: 'Operations dashboard and workflow execution surface'
       },
       {
-        src: '/projects/cargo-web/api-boundary-orchestration.svg',
+        src: '/projects/cargo-web/api-boundary-orchestration.jpg',
         caption: 'Client-to-API boundary and request orchestration diagram'
       }
     ]
@@ -37,11 +37,11 @@ const PROJECT_PRESENTATION = {
     subtitle: 'Unified architecture for booking, payments, and delivery surfaces',
     visualSlots: [
       {
-        src: '/projects/platform-consolidation/admin-workflow.svg',
+        src: '/projects/platform-consolidation/admin-workflow.jpg',
         caption: 'Shared administration workflow across consolidated modules'
       },
       {
-        src: '/projects/platform-consolidation/platform-modules-pipeline.svg',
+        src: '/projects/platform-consolidation/platform-modules-pipeline.jpg',
         caption: 'Reusable platform modules and shared release pipeline'
       }
     ]
@@ -51,11 +51,11 @@ const PROJECT_PRESENTATION = {
     subtitle: 'Deadline-critical cross-platform mobile release for government timeline',
     visualSlots: [
       {
-        src: '/projects/awtar-ksrtc/mobile-webview-interface.svg',
+        src: '/projects/awtar-ksrtc/mobile-webview-interface.jpg',
         caption: 'Cross-platform mobile interface delivered with React Native wrapper'
       },
       {
-        src: '/projects/awtar-ksrtc/one-week-delivery-plan.svg',
+        src: '/projects/awtar-ksrtc/one-week-delivery-plan.jpg',
         caption: 'One-week execution plan for Android and iOS launch'
       }
     ]
@@ -171,9 +171,6 @@ function ProjectBlock({ projectKey, project, onDiscuss }) {
           )}
 
           <Box>
-            <Typography variant="overline" color="text.secondary" className={styles.sectionLabel}>
-              Visual evidence (screenshots + diagrams)
-            </Typography>
             <Box className={styles.visualGrid}>
               {presentation.visualSlots.map((slot) => (
                 <ProjectVisualSlot key={slot.src} slot={slot} />
