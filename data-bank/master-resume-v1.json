@@ -69,17 +69,29 @@
     {
       "name": "Cargo Web",
       "focus": "Legacy-to-web migration with API-first boundaries",
-      "impact": "Shifted desktop workflows to an API-driven web platform used in nationwide production, improving observability and operational stability."
+      "bullets": [
+        "Migrated tightly coupled desktop workflows to an API-driven web platform used in nationwide production.",
+        "Defined clear client-API contracts that improved observability and made debugging faster.",
+        "Improved operational stability while phasing out fragile legacy pathways."
+      ]
     },
     {
       "name": "Platform Consolidation",
       "focus": "Unified booking, payments, and mobile delivery architecture",
-      "impact": "Reduced duplicate implementation and maintenance overhead by centralizing shared product capabilities into one durable platform."
+      "bullets": [
+        "Consolidated website builder, booking flows, and payment logic into a reusable shared platform.",
+        "Reduced duplicated implementation and release overhead across multiple products.",
+        "Enabled single-platform rollouts with lower long-term maintenance cost."
+      ]
     },
     {
       "name": "AWTAR / KSRTC",
       "focus": "Deadline-critical government launch",
-      "impact": "Delivered Android and iOS in one week by selecting a pragmatic React Native WebView strategy without extending timeline."
+      "bullets": [
+        "Handled a late iOS requirement by choosing a pragmatic React Native WebView strategy.",
+        "Delivered Android and iOS apps within one week without timeline extension.",
+        "Approach was later reused across additional products for faster delivery."
+      ]
     }
   ],
   "education": [

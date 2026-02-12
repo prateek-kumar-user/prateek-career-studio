@@ -141,10 +141,16 @@ for (const job of data.experience.slice(0, 2)) {
   y -= 2.4;
 }
 
-section('Representative Case Studies');
+section('Project Highlights');
 for (const project of data.selected_projects.slice(0, 3)) {
   drawParagraph(`${project.name} | ${project.focus}`, { size: 9.7, font: bold, leading: 11.8 });
-  drawBullet(project.impact, { size: 9.3, leading: 11.3, indent: 10 });
+  const projectBullets = Array.isArray(project.bullets) && project.bullets.length
+    ? project.bullets.slice(0, 3)
+    : [project.impact].filter(Boolean);
+
+  for (const bullet of projectBullets) {
+    drawBullet(bullet, { size: 9.3, leading: 11.3, indent: 10 });
+  }
 }
 
 section('Education and Certifications');
