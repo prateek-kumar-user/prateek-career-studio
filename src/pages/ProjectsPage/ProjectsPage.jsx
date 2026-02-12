@@ -19,8 +19,9 @@ import styles from './ProjectsPage.module.scss';
 
 const PROJECT_PRESENTATION = {
   cargo_web: {
-    title: 'Cargo Web Modernization Program',
-    subtitle: 'Desktop-to-web migration for nationwide logistics workflows',
+    title: 'Cargo Platform Modernization (Legacy C# to API-First Web)',
+    subtitle: 'Rebuilt a tightly coupled desktop cargo system into a scalable, secure web platform with clean API boundaries.',
+    about: 'Led end-to-end modernization of mission-critical cargo operations by separating UI from backend services and introducing workflow-focused modules for bookings, dispatch, deliveries, and analytics.',
     visualSlots: [
       {
         src: '/projects/cargo-web/operations-dashboard.jpg',
@@ -33,8 +34,9 @@ const PROJECT_PRESENTATION = {
     ]
   },
   platform_consolidation: {
-    title: 'Platform Consolidation Initiative',
-    subtitle: 'Unified architecture for booking, payments, and delivery surfaces',
+    title: 'Multi-Brand Booking Platform with Centralized Payments',
+    subtitle: 'Unified multiple client sites under one configurable platform with shared booking flows and a secure payment core.',
+    about: 'Designed a reusable, theme-driven architecture so each brand could have a custom website experience while relying on the same hardened booking, checkout, and operations backbone.',
     visualSlots: [
       {
         src: '/projects/platform-consolidation/admin-workflow.jpg',
@@ -47,8 +49,9 @@ const PROJECT_PRESENTATION = {
     ]
   },
   awtar_ksrtc: {
-    title: 'AWTAR / KSRTC Delivery Program',
-    subtitle: 'Deadline-critical cross-platform mobile release for government timeline',
+    title: 'KSRTC Cross-Platform Booking App + Operations CRM',
+    subtitle: 'Delivered customer-facing mobile booking and an internal CRM/operations layer for public transport workflows.',
+    about: 'Executed a deadline-critical transport product rollout covering seat selection, live trip visibility, ticket workflows, and staff-side inventory/reporting operations in one coordinated release.',
     visualSlots: [
       {
         src: '/projects/awtar-ksrtc/mobile-webview-interface.jpg',
@@ -137,9 +140,9 @@ function ProjectBlock({ projectKey, project, onDiscuss }) {
             {project.status && <Chip size="small" label={project.status} color="primary" className={styles.badgeChip} />}
           </Box>
 
-          {story?.elevator_pitch && (
+          {(presentation.about || story?.elevator_pitch) && (
             <Typography variant="body2" className={styles.elevatorPitch}>
-              {story.elevator_pitch}
+              {presentation.about || story?.elevator_pitch}
             </Typography>
           )}
 
